@@ -11,53 +11,26 @@
       
           <ul class="navbar-nav m-auto">
   
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                      aria-expanded="false">
-                      Home
-                  </a>
-                  <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Home 1</a></li>
-                      <li><a class="dropdown-item" href="#">Home 2</a></li>
-                      <li><a class="dropdown-item" href="#">Home 3</a></li>
-  
-                  </ul>
-              </li>
+            <li class="nav-item ">
+                <a [routerLink]="['/home']" class="nav-link" href=".#">
+                    Home
+                </a>
+    
+            </li>
           
   
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
-                  Shop
+                  Categories
               </a>
               <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Shop Grid - Filter</a>
+                  <li><a [routerLink]="['/product']" class="dropdown-item">Vegetables</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">Shop Grid - 3
-                          column</a>
+                  <li><a class="dropdown-item" href="#">Fruits</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">Shop List - Filter</a>
+                  <li><a class="dropdown-item" href="#">Dairy</a>
                   </li>
-                  <li><a class="dropdown-item" href="#">Shop - Filter</a></li>
-                  <li><a class="dropdown-item" href="#">Shop Wide</a></li>
-                  <li><a class="dropdown-item" href="#">Shop Single</a></li>
-                  <li><a class="dropdown-item" href="#">Shop Wishlist</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#">Shop Cart</a></li>
-                  <li><a class="dropdown-item" href="#">Shop Checkout</a>
-                  </li>
-              </ul>
-          </li>
-          <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  Stores
-              </a>
-              <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Store List</a></li>
-                  <li><a class="dropdown-item" href="#">Store Grid</a></li>
-                  <li><a class="dropdown-item" href="#">Store Single</a></li>
-  
               </ul>
           </li>
   
@@ -68,18 +41,14 @@
               </a>
               <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Blog</a></li>
-                  <li><a class="dropdown-item" href="#">Blog Single</a></li>
-                  <li><a class="dropdown-item" href="#">Blog Category</a>
-                  </li>
                   <li><a class="dropdown-item" href="#">About us</a></li>
-                  <li><a class="dropdown-item" href="#">404 Error</a></li>
                   <li><a class="dropdown-item" href="#">Contact</a></li>
               </ul>
           </li>
   
           <li class="nav-item ">
-              <a class="nav-link" href=".#">
-                  Docs
+              <a [routerLink]="['/login']"class="nav-link" href=".#">
+                  LogIn/SignUp
               </a>
   
           </li>
@@ -88,8 +57,9 @@
   
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn-search-icon rounded-circle"><i class="bi bi-search-heart"></i></button>
+          <button class="btn-search-icon rounded-circle"><i class="bi bi-search"></i></button>
         </form>
       </div>
     </div>
   </nav>
+  <router-outlet></router-outlet>
