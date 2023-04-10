@@ -3,12 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { OrderComponent } from './order/order.component';
+import { ProfileComponent } from './profile/profile.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
   { path: 'product', component: ProductsComponent  },
   { path: 'home',  component: HomeComponent},
-  { path: 'login',  component: LoginComponent}
+  { path: 'login',  component: LoginComponent},
+  { path: 'order',  component: OrderComponent},
+  { path: 'profile',  component: ProfileComponent},
+  { path: 'payment',  component: PaymentComponent}
 
 ];
 @NgModule({
