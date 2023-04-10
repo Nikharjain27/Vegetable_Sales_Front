@@ -1,11 +1,12 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { OrderComponent } from './order/order.component';
-import { ProfileComponent } from './profile/profile.component';
-import { PaymentComponent } from './payment/payment.component';
+import { ProductsComponent } from './components/products/products.component';
+import { HomeComponent } from './components/home/home.component';
+import { LoginComponent } from './components/login/login.component';
+import { OrderComponent } from './components/order/order.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { CartComponent } from './components/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'login',  component: LoginComponent},
   { path: 'order',  component: OrderComponent},
   { path: 'profile',  component: ProfileComponent},
-  { path: 'payment',  component: PaymentComponent}
+  { path: 'payment',  component: PaymentComponent},
+  { path: 'cart',  component: CartComponent}, 
 
 ];
 @NgModule({
