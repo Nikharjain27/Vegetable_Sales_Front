@@ -13,6 +13,10 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
+import { ProductService } from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import { AdminComponent } from './components/admin/admin.component';
+import { CustomerService } from './services/customer.service';
 
 @NgModule({
   declarations: [
@@ -26,13 +30,18 @@ import { OrderComponent } from './components/order/order.component';
     ProfileComponent,
     PaymentComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ProductService,
+    CustomerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

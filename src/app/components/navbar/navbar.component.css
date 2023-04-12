@@ -251,3 +251,8 @@ nav{
     padding: 3px;
     border-radius: 20px;
 }
+
+.footer{
+    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+    --bs-bg-opacity: 1
+}
