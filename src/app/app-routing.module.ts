@@ -7,18 +7,22 @@ import { OrderComponent } from './components/order/order.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
-  { path: 'product', component: ProductsComponent  },
+  { path: 'product-list-for-customer', component: ProductsComponent},
+  { path: 'admin-product-list', component: AddproductComponent},
   { path: 'home',  component: HomeComponent},
   { path: 'login',  component: LoginComponent},
   { path: 'order',  component: OrderComponent},
   { path: 'profile',  component: ProfileComponent},
   { path: 'payment',  component: PaymentComponent},
   { path: 'cart',  component: CartComponent}, 
+ 
 
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
