@@ -8,11 +8,12 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { CURDproductComponent } from './components/curdproduct/curdproduct.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
   { path: 'product-list-for-customer', component: ProductsComponent},
-  { path: 'admin-product-list', component: AddproductComponent},
+  { path: 'admin-product-list', component: CURDproductComponent},
   { path: 'home',  component: HomeComponent},
   { path: 'login',  component: LoginComponent},
   { path: 'order',  component: OrderComponent},

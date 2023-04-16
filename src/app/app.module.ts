@@ -60,6 +60,7 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

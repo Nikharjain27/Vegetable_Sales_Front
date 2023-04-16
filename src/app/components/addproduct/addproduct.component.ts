@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/entity/product/product';
 import { ProductService } from 'src/app/services/productService/product.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { MatFormFieldControl } from '@angular/material/form-field';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class AddproductComponent implements OnInit {
 
   product: Product = new Product();
-  angForm!: FormGroup;
+  angForm: FormGroup;
 
   constructor(private productService:ProductService,
     private router: Router,
