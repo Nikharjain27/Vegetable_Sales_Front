@@ -7,8 +7,8 @@
 </div>
 
 <mat-grid-list cols="4" rowHeight="400px" *ngIf="products">
-    <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">  
-        
+    <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">
+
         <mat-card class="mat-card">
             <img style="border-radius: 5px; height: 150px;" sizes="100px" mat-card-image src="{{product.productImage}}"
                 alt="Dish Photo">
