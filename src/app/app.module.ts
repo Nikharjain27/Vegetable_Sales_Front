@@ -17,6 +17,7 @@ import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerService } from './services/customer.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,11 +37,12 @@ import { CustomerService } from './services/customer.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [
     ProductService,
-    CustomerService
+    CustomerService,
   ],
   bootstrap: [AppComponent]
 })

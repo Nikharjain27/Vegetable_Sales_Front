@@ -1,1 +1,106 @@
-<p>sign-up works!</p>
+<div
+  class="text-center container mt-5 mb-5"
+  style="max-width: 400px; background-color: #f8f9fa; border-radius: 25px;border: 1px solid #050503;"
+>
+  <br />
+  <img src="../../../assets/img/signup.png" alt="signup.png" height="100px" />
+  <form class="g-3">
+    <div class="col-12 mt-3">
+      <input
+        [(ngModel)]="customer.customerName"
+        class="form-label text-center"
+        type="text"
+        name="customerName"
+        placeholder="Full Name"
+        minlength="3"
+        style="border-radius: 5px; width: 250px"
+        required
+      />
+    </div>
+    <div class="col-12">
+      <input
+        [(ngModel)]="customer.customerPhone"
+        class="form-label text-center"
+        type="number"
+        name="customerPhone"
+        placeholder="Mobile Number"
+        minlength="10"
+        maxlength="10"
+        style="border-radius: 5px; width: 250px"
+        required
+      />
+    </div>
+    <div class="col-12">
+      <input
+        [(ngModel)]="customer.customerEmail"
+        class="form-label text-center"
+        name="customerEmail"
+        type="email"
+        placeholder="Email Id"
+        style="border-radius: 5px; width: 250px"
+        minlength="10"
+        required
+      />
+    </div>
+
+    <div class="col-12">
+      <input
+        [(ngModel)]="customer.customerPassword"
+        class="form-label text-center"
+        type="password"
+        name="customerPassword"
+        placeholder="Password"
+        style="border-radius: 5px; width: 250px"
+        minlength="8"
+        required
+      />
+    </div>
+    <div class="col-12">
+      <input
+        [(ngModel)]="confirmPassword"
+        class="form-label text-center"
+        type="password"
+        name="confirmPassword"
+        placeholder="Confirm Password"
+        style="border-radius: 5px; width: 250px"
+        minlength="8"
+        required
+      />
+    </div>
+
+    <div class="col-12 mt-3">
+      <input
+        *ngIf="
+          customer.customerName.length > 2 &&
+          customer.customerEmail.length >= 13 &&
+          customer.customerEmail.endsWith('@gmail.com') &&
+          customer.customerPhone > 7000000000 &&
+          customer.customerPhone < 9876543210 &&
+          customer.customerPassword.length >= 8 &&
+          customer.customerPassword === confirmPassword
+        "
+        class="btn btn-success"
+        type="submit"
+        value="Sign up"
+        (click)="printCustomer()"
+      />
+      <input
+        *ngIf="
+          customer.customerName.length < 3 ||
+          customer.customerEmail.length < 13 ||
+          !customer.customerEmail.endsWith('@gmail.com') ||
+          customer.customerPhone <= 7000000000 ||
+          customer.customerPhone > 9876543210 ||
+          customer.customerPassword.length < 8 ||
+          customer.customerPassword !== confirmPassword
+        "
+        class="btn btn-success"
+        type="submit"
+        value="Sign up"
+        (click)="printCustomer()"
+        disabled
+      />
+    </div>
+    <br />
+  </form>
+</div>

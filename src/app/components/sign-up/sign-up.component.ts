@@ -12,4 +12,15 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  confirmPassword:string = ""
+  customer:any = {
+    customerName : "",
+    customerEmail: "",
+    customerPhone: "",
+    customerPassword: ""
+  }
+
+  printCustomer(){
+    console.log(this.customer);
+  }
 }

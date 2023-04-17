@@ -8,6 +8,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'cart',  component: CartComponent}, 
   { path: 'admin',  component: AdminComponent}, 
 
+  {path: 'signup', component: SignUpComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
