@@ -11,14 +11,14 @@
   .list-cart-item {
       margin-bottom: 30px;
   }
-}
+
 
 /* felx box */
 
 .card {
   height: 60vh;
   margin: 25px;
-  padding: 25px;
+  padding: 25spx;
 }
 
 .center img {
@@ -31,6 +31,7 @@
   margin: 10px 10px;
 }
 
+}
 .center {
   position: absolute;
   top: 55%;

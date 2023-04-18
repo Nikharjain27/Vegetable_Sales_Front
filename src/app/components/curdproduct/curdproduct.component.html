@@ -6,7 +6,6 @@
     </mat-form-field>
 </div>
 
-
 <mat-grid-list cols="4" rowHeight="400px" *ngIf="products">
     <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">
         <mat-card class="mat-card">
