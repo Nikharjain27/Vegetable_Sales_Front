@@ -1,24 +1,18 @@
-<div
-  class="text-center container mt-5 mb-5"
-  style="
+<div class="text-center container mt-5 mb-5" style="
     background-color: #80808014;
     padding: 10px;
     border-radius: 10px;
     max-width: 600px;
-  "
->
+  ">
   <div class="text-center mt-1 img-fluid">
-    <img
-      src="../../../assets/img/order-success.png"
-      alt="order-success.png"
-      height="200px"
-      style="border-radius: 10px;"
-    />
+    <img src="../../../assets/img/order-success.png" alt="order-success.png" height="200px"
+      style="border-radius: 10px;" />
   </div>
   <div class="text-center mt-3" *ngIf="order !== null">
     <h1>Order Confirmed !!</h1>
     <div class="mt-3 text-center">
-      <table class="table table-bordered" style="background-color: white;border-radius: 10px; max-width: 500px;margin: auto;">
+      <table class="table table-bordered"
+        style="background-color: white;border-radius: 10px; max-width: 500px;margin: auto;">
         <tr>
           <th>Order Id</th>
           <td *ngIf="order.orderId !== null">{{order.orderId}}</td>
@@ -45,22 +39,23 @@
           <td *ngIf="order.payment.paymentType === null">-------------------------</td>
         </tr>
       </table>
-      <br/>
+      <br />
       <h1>Cart Items</h1>
-      <table class="table table-bordered" style="background-color: white;border-radius: 10px;max-width: 500px;margin: auto;">
+      <table class="table table-bordered" *ngFor="let cartItem of cartItems; let i = index"
+        style="background-color: white;border-radius: 10px;max-width: 500px;margin: auto;">
         <thead>
-            <th>Cart No.</th>
-            <th>Product Image</th>
-            <th>Product Name</th>
-            <th>Product Price</th>
-            <th>Product Quantity</th>
+          <th>Cart No.</th>
+          <th>Product Image</th>
+          <th>Product Name</th>
+          <th>Product Price</th>
+          <th>Product Quantity</th>
         </thead>
-        <tbody *ngFor="let cartItem of cartItems; let i = index">
-            <td>{{i+1}}</td>
-            <td><img src="{{cartItem.cartItemImage}}" alt="productImage" height="100px"></td>
-            <td>{{cartItem.cartItemName}}</td>
-            <td><span>&#x20B9;</span>{{cartItem.cartItemPrice}}</td>
-            <td>{{cartItem.cartItemQuantity}}</td>
+        <tbody>
+          <td>{{i+1}}</td>
+          <td><img src="{{cartItem.cartItemImage}}" alt="productImage" height="100px"></td>
+          <td>{{cartItem.cartItemName}}</td>
+          <td><span>&#x20B9;</span>{{cartItem.cartItemPrice}}</td>
+          <td>{{cartItem.cartItemQuantity}}</td>
         </tbody>
       </table>
     </div>
@@ -69,3 +64,4 @@
     <h3>{{errorMsg}}</h3>
   </div>
 </div>
+<button mat-raised-button color="primary" (click)="openDialog()">Proceed To Payment</button>
