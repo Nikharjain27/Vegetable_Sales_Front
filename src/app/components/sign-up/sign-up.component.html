@@ -1,105 +1,102 @@
 <div
   class="text-center container mt-5 mb-5"
-  style="max-width: 400px; background-color: #f8f9fa; border-radius: 25px;border: 1px solid #050503;"
+  style="
+    max-width: 400px;
+    background-color: #f8f9fa;
+    border-radius: 25px;
+    border: 1px solid #050503;
+  "
 >
   <br />
   <img src="../../../assets/img/signup.png" alt="signup.png" height="100px" />
-  <form class="g-3">
+  <form class="g-3" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
     <div class="col-12 mt-3">
+      <span
+        *ngIf="
+          !signupForm.get('customerName')!.valid &&
+          signupForm.get('customerName')!.touched
+        "
+        class="alert-spans"
+        >Invalid Name Entered...</span
+      >
       <input
-        [(ngModel)]="customer.customerName"
         class="form-label text-center"
         type="text"
-        name="customerName"
+        formControlName="customerName"
         placeholder="Full Name"
-        minlength="3"
         style="border-radius: 5px; width: 250px"
-        required
-      />
+      /><br />
     </div>
     <div class="col-12">
+      <span
+        *ngIf="
+          !signupForm.get('customerPhone')!.valid &&
+          signupForm.get('customerPhone')!.touched
+        "
+        class="alert-spans"
+        >Invalid Phone Number Entered...</span
+      >
       <input
-        [(ngModel)]="customer.customerPhone"
         class="form-label text-center"
         type="number"
-        name="customerPhone"
+        formControlName="customerPhone"
         placeholder="Mobile Number"
-        minlength="10"
-        maxlength="10"
         style="border-radius: 5px; width: 250px"
-        required
-      />
+      /><br />
     </div>
     <div class="col-12">
+      <span
+        *ngIf="
+          !signupForm.get('customerEmail')!.valid &&
+          signupForm.get('customerEmail')!.touched
+        "
+        class="alert-spans"
+        >Invalid Email Entered...</span
+      >
       <input
-        [(ngModel)]="customer.customerEmail"
         class="form-label text-center"
-        name="customerEmail"
+        formControlName="customerEmail"
         type="email"
         placeholder="Email Id"
         style="border-radius: 5px; width: 250px"
-        minlength="10"
-        required
-      />
+      /><br />
     </div>
 
     <div class="col-12">
+      <span
+        *ngIf="
+          !signupForm.get('customerPassword')!.valid &&
+          signupForm.get('customerPassword')!.touched
+        "
+        class="alert-spans"
+        >Invalid Password Entered...</span
+      >
       <input
-        [(ngModel)]="customer.customerPassword"
         class="form-label text-center"
         type="password"
-        name="customerPassword"
+        formControlName="customerPassword"
         placeholder="Password"
         style="border-radius: 5px; width: 250px"
-        minlength="8"
-        required
-      />
+      /><br />
     </div>
-    <div class="col-12">
+    <!-- <div class="col-12">
       <input
-        [(ngModel)]="confirmPassword"
         class="form-label text-center"
         type="password"
-        name="confirmPassword"
+        formControlName="confirmPassword"
         placeholder="Confirm Password"
         style="border-radius: 5px; width: 250px"
-        minlength="8"
-        required
-      />
-    </div>
-
+      /><br />
+      <span
+        *ngIf="
+          !signupForm.get('confirmPassword')!.valid &&
+          signupForm.get('confirmPassword')!.touched
+        "
+        >Password & Confirm Password don't match...</span
+      >
+    </div> -->
     <div class="col-12 mt-3">
-      <input
-        *ngIf="
-          customer.customerName.length > 2 &&
-          customer.customerEmail.length >= 13 &&
-          customer.customerEmail.endsWith('@gmail.com') &&
-          customer.customerPhone > 7000000000 &&
-          customer.customerPhone < 9876543210 &&
-          customer.customerPassword.length >= 8 &&
-          customer.customerPassword === confirmPassword
-        "
-        class="btn btn-success"
-        type="submit"
-        value="Sign up"
-        (click)="printCustomer()"
-      />
-      <input
-        *ngIf="
-          customer.customerName.length < 3 ||
-          customer.customerEmail.length < 13 ||
-          !customer.customerEmail.endsWith('@gmail.com') ||
-          customer.customerPhone <= 7000000000 ||
-          customer.customerPhone > 9876543210 ||
-          customer.customerPassword.length < 8 ||
-          customer.customerPassword !== confirmPassword
-        "
-        class="btn btn-success"
-        type="submit"
-        value="Sign up"
-        (click)="printCustomer()"
-        disabled
-      />
+      <input [disabled]="!signupForm.valid" class="btn btn-success" type="submit" value="Sign up" />
     </div>
     <br />
   </form>

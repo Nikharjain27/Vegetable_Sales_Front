@@ -1,0 +1,8 @@
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.alert-spans{
+    color: red;
+    padding: 5px;
+}

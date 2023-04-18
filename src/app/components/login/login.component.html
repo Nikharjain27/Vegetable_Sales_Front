@@ -8,66 +8,67 @@
   "
 >
   <br />
-  <div class="mb-2">
-    <img src="../../../assets/img/login.png" alt="login.png" height="100px" />
+  <div class="mt-5" *ngIf="isLoading">
+    <mat-progress-spinner></mat-progress-spinner>
   </div>
-  <form class="g-3 mt-4">
-    <div class="col-12">
-      <input
-        class="form-label text-center"
-        type="email"
-        minlength="10"
-        [(ngModel)]="customer.customerEmail"
-        name="customerEmail"
-        placeholder="Email Id"
-        style="border-radius: 5px; width: 250px"
-        required
-      />
+  <div *ngIf="!isLoading">
+    <div class="mb-2">
+      <img src="../../../assets/img/login.png" alt="login.png" height="100px" />
     </div>
+    <form class="g-3 mt-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="col-12">
+        <span
+          *ngIf="
+            !loginForm.get('customerEmail')!.valid &&
+            loginForm.get('customerEmail')!.touched
+          "
+          class="alert-spans"
+          >Invalid Email Entered...</span
+        >
+        <input
+          class="form-label text-center"
+          type="email"
+          formControlName="customerEmail"
+          name="customerEmail"
+          placeholder="Email Id"
+          style="border-radius: 5px; width: 250px"
+        />
+      </div>
 
-    <div class="col-12">
-      <input
-        class="form-label text-center"
-        type="password"
-        [(ngModel)]="customer.customerPassword"
-        name="customerPassword"
-        minlength="8"
-        placeholder="Password"
-        style="border-radius: 5px; width: 250px"
-        required
-      />
-    </div>
+      <div class="col-12">
+        <span
+          *ngIf="
+            !loginForm.get('customerPassword')!.valid &&
+            loginForm.get('customerPassword')!.touched
+          "
+          class="alert-spans"
+          >Invalid Password Entered...</span
+        >
+        <input
+          class="form-label text-center"
+          type="password"
+          formControlName="customerPassword"
+          name="customerPassword"
+          placeholder="Password"
+          style="border-radius: 5px; width: 250px"
+        />
+      </div>
 
-    <div class="col-12 mt-2">
-      <input
-        *ngIf="
-          customer.customerEmail.length >= 13 &&
-          customer.customerPassword.length >= 8 &&
-          customer.customerEmail.endsWith('@gmail.com') 
-        "
-        class="btn btn-success"
-        type="submit"
-        value="Login"
-        (click)="printCustomer()"
-      />
-      <input
-        *ngIf="
-          customer.customerEmail.length < 13 ||
-          customer.customerPassword.length < 8 ||
-          !customer.customerEmail.endsWith('@gmail.com') 
-        "
-        class="btn btn-success"
-        type="submit"
-        value="Login"
-        (click)="printCustomer()"
-        disabled
-      />
-    </div>
-    <div class="col-12 mt-3">
-      <a [routerLink]="['/signup']" style="text-decoration: none"
-        >Create New Account</a
-      >
-    </div>
-  </form>
-  <br />
+      <div class="col-12 mt-2">
+        <input
+          class="btn btn-success"
+          type="button"
+          value="Login"
+          type="submit"
+          [disabled]="!loginForm.valid"
+        />
+      </div>
+      <div class="col-12 mt-3">
+        <a [routerLink]="['/signup']" style="text-decoration: none"
+          >Create New Account</a
+        >
+      </div>
+    </form>
+    <br />
+  </div>
 </div>

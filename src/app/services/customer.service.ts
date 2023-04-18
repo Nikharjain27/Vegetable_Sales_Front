@@ -1,24 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../entities/customer';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
+  private baseURL = "http://localhost:9091/customer-section";
 
-  private customerUrl: string;
+  constructor(private httpClient: HttpClient) { }
 
-  constructor(private http: HttpClient) {
-    this.customerUrl= "http://localhost:9091/api/v1/customer"
-   }
-
-   public getAllCustomers(): Observable<Customer[]>{
-    return this.http.get<Customer[]>(this.customerUrl);
+  getAllCustomers(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(`${this.baseURL}/customers`, { 'headers': new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem("authenticationToken")}` }) });
   }
-  
-  public deleteCustomer(customerId: number): Observable<any>{
-    return this.http.delete(`${this.customerUrl}/${customerId}`);
+
+  addCustomer(customer: Customer): Observable<Customer> {
+    return this.httpClient.post<Customer>(`${this.baseURL}/customer`, customer, { 'headers': new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem("authenticationToken")}` }) });
   }
+
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.httpClient.put<Customer>(`${this.baseURL}/customer`, customer, { 'headers': new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem("authenticationToken")}` }) });
+  }
+
+  getCustomerById(id: number): Observable<Customer> {
+    return this.httpClient.get<Customer>(`${this.baseURL}/customer/${id}`, { 'headers': new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem("authenticationToken")}` }) });
+  }
+  getCustomerByEmail(email: string): Observable<Customer> {
+    return this.httpClient.get<Customer>(`${this.baseURL}/customer/by-email/${email}`, { 'headers': new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem("authenticationToken")}` }) });
+  }
+
+  deleteCustomer(id: number): Observable<Customer[]> {
+    return this.httpClient.delete<Customer[]>(`${this.baseURL}/customer/${id}`, { 'headers': new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem("authenticationToken")}` }) });
+  }
+
 }

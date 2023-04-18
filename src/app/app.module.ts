@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -14,10 +15,9 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
 import { ProductService } from './services/product.service';
-import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerService } from './services/customer.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatIconModule} from '@angular/material/icon';
@@ -26,6 +26,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { DeleteComponent } from './components/delete/delete.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatCardModule } from "@angular/material/card";
+import { MatSelectModule } from '@angular/material/select';
+import { MatCommonModule } from '@angular/material/core';
+import { MatTabsModule } from "@angular/material/tabs";
+import { MatGridListModule } from "@angular/material/grid-list";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatExpansionModule } from '@angular/material/expansion';
 
 
 @NgModule({
@@ -46,6 +55,7 @@ import { DeleteComponent } from './components/delete/delete.component';
     DeleteComponent
   ],
   imports: [
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
@@ -60,6 +70,23 @@ import { DeleteComponent } from './components/delete/delete.component';
   providers: [
     ProductService,
     CustomerService,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatCommonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatToolbarModule,
+    MatCardModule,
+    MatIconModule,
+    MatPaginatorModule,
+    MatGridListModule,
+    MatExpansionModule,
   ],
   bootstrap: [AppComponent]
 })
