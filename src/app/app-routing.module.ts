@@ -8,7 +8,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { CURDproductComponent } from './components/curdproduct/curdproduct.component';
+import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 
 
 const routes: Routes = [
