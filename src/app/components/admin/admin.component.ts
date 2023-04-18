@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/entities/customer';
 import { Product } from 'src/app/entities/product';
-import { CustomerService } from 'src/app/services/customer.service';
-import { ProductService } from 'src/app/services/product.service';
 import { EditComponent } from '../edit/edit.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../delete/delete.component';
+import { AdminService } from 'src/app/services/admin.service';
+import { Order } from '../entities/order';
 
 @Component({
   selector: 'app-admin',
@@ -16,21 +16,36 @@ export class AdminComponent implements OnInit {
 
   customers: Customer[];
   products: Product[];
-  constructor(private _customer: CustomerService, private _product: ProductService, private _dialog: MatDialog) { }
+  orders: Order[];
+  constructor(private _admin: AdminService, private _dialog: MatDialog) { }
   
   ngOnInit(): void {
 
-    this._customer.getAllCustomers().subscribe(data=>{
-      this.customers=data;
-    });
+    // this._admin.getAllCustomers().subscribe(data=>{
+    //   this.customers=data;
+    // });
 
-    this._product.getAllProducts().subscribe(data=>{
+    this.getAllCustomers();
+
+    this._admin.getAllProducts().subscribe(data=>{
       this.products=data;
     });
 
-   
+   this._admin.getAllOders().subscribe(data=>{
+    this.orders=data;
+   });
+
+  //  this._admin.deleteCustomer(customerId).subscribe(data=>{
+  //   this.customers=data;
+  //  })
   }
 
+  private getAllCustomers(){
+    this._admin.getAllCustomers().subscribe(data=>{
+      this.customers=data;
+    });
+
+  }
   openEditCustomerForm(){
     let dialogRef = this._dialog.open(EditComponent,{
       width: '600px',
@@ -60,6 +75,20 @@ export class AdminComponent implements OnInit {
 
 
   deleteCustomer(customerId: number){
-    return this._customer.deleteCustomer(customerId);
+    return this._admin.deleteCustomer(customerId).subscribe({
+
+      next: (res) =>{
+      
+       alert("Customer deleted successfully");
+      
+       this.getAllCustomers();
+      
+      },
+      
+ error:() => {
+      
+    alert("Error while deleting product");
+        }
+      });
   }
 }
