@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { ProductsComponent } from './components/products/products.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -12,29 +13,37 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ProductsComponent } from './components/products/products.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatIconModule } from "@angular/material/icon";
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatGridListModule } from '@angular/material/grid-list';
-import { MatCardModule } from '@angular/material/card'
-import { MatButtonModule } from '@angular/material/button';
-import  { MatIconModule } from '@angular/material/icon';
-import { SearchProductPipe } from './components/search/search-product.pipe';
-import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCommonModule } from '@angular/material/core';
+import { MatGridListModule } from "@angular/material/grid-list";
+import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatExpansionModule } from '@angular/material/expansion';
+import { SearchProductPipe } from './components/search/search-product.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CURDproductComponent } from './components/curdproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatDialogModule } from '@angular/material/dialog';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     BannerComponent,
+    ProductsComponent,
     HomeComponent,
     LoginComponent,
     SignUpComponent,
@@ -42,27 +51,30 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     PaymentComponent,
     CartComponent,
     OrderComponent,
-    ProductsComponent,
     SearchProductPipe,
     CURDproductComponent,
     AddproductComponent,
-
   ],
   imports: [
+    MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatGridListModule,
-    MatCardModule,
-    MatButtonModule,
-    FormsModule,
-    MatInputModule,
     ReactiveFormsModule,
-    MatDialogModule,
+    FormsModule,
+    HttpClientModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
     MatIconModule,
-
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCommonModule,
+    MatPaginatorModule,
+    MatGridListModule,
+    MatExpansionModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
