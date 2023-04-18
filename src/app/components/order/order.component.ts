@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PaymentComponent } from '../payment/payment.component';
+import { MatDialog } from '@angular/material/dialog';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -8,12 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+
+  constructor(private httpClient: HttpClient, private router: Router, private dialog: MatDialog) { }
   customerEmail = localStorage.getItem("customerEmailId");
   token = localStorage.getItem("authenticationToken");
   errorMsg: any;
   order: any = null;
-  cartItems:any;
+  cartItems: any;
   ngOnInit(): void {
     this.httpClient
       .get(
@@ -36,5 +39,20 @@ export class OrderComponent implements OnInit {
           // console.log(error);
         }
       );
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(PaymentComponent, {
+      width: '600px',
+      height: '500px',
+    });
+
+    dialogRef.afterOpened().subscribe(res => {
+      console.log("Dialog Opened");
+    });
+
+    dialogRef.afterClosed().subscribe(res => {
+      console.log("Dialog Closed");
+    });
   }
 }
