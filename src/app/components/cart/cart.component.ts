@@ -12,12 +12,13 @@ import { CartItem } from 'src/app/entity/cartItem/cart-item';
 })
 export class CartComponent implements OnInit {
 
-  // public products : any = [];
-  // totalAmountl : number;
+  public product : any = [];
+  totalAmountl : number;
 
   currentCart: Cart;
   currentCartItem: CartItem;
   currentIndex: number;
+
 
   constructor(private cartService: CartService, private dialog: MatDialog,
     private route: ActivatedRoute,

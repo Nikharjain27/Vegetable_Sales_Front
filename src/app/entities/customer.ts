@@ -1,3 +1,6 @@
+import { Cart } from "../entity/cart/cart";
+import { Payment } from "./payment";
+
 export class Customer {
     customerId: number;
     customerName: string;
@@ -7,4 +10,6 @@ export class Customer {
     customerAddress: string;
     customerPincode: string;
     customerCity: string;
+    cart:Cart;
+    payment:Payment
 }

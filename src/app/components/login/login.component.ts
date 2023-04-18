@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
+import { Customer } from 'src/app/entities/customer';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,12 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   isLoading: boolean = false;
   authenticationToken: any;
-  constructor(private httpClient: HttpClient,private router: Router) {}
+  constructor(
+    private httpClient: HttpClient,
+    private router: Router,
+    private customerService: CustomerService,
+    // private customer: Customer
+  ) {}
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -53,7 +59,24 @@ export class LoginComponent implements OnInit {
           let time = new Date().getTime();
           time += 1000 * 60 * 60;
           localStorage.setItem('tokenExpirationTime', time.toString());
-          localStorage.setItem("customerEmailId",this.loginForm.value.customerEmail);
+          localStorage.setItem(
+            'customerEmailId',
+            this.loginForm.value.customerEmail
+          );
+          this.customerService
+            .getCustomerByEmail(this.loginForm.value.customerEmail)
+            .subscribe({
+              next:(responseData) => {
+                localStorage.setItem(
+                  'customerCartId',
+                  responseData.cart.cartId.toString()
+                );
+                console.log(responseData);
+              },
+              error:(error) => {
+                console.log(error);
+              }
+        });
           this.router.navigate(['/home']);
         },
         (error) => {
