@@ -33,7 +33,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CURDproductComponent } from './components/curdproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
-
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -66,6 +66,7 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatTabsModule,
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
