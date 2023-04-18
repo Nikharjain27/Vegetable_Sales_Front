@@ -19,12 +19,11 @@
             <mat-card-subtitle>{{product.productDescription}}</mat-card-subtitle>
             <mat-card-title>{{ product.productPrice | currency: 'INR' }}</mat-card-title>
             <mat-card-actions style="display: flex; justify-content: center;">
-                <button mat-raised-button color="accent">Add to cart</button>
-                <!-- <button mat-raised-button color="accent" (click)="addToCart(product)">Add to cart</button> -->
+                <button mat-raised-button color="accent" (click)="addToCart(product)">Add to cart</button>
             </mat-card-actions>
         </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
 <div align="center">
-    <button mat-raised-button color="primary" routerLink="/cart/1">Go to Cart</button>
+    <button mat-raised-button color="primary" [routerLink]="['/cart']">Go to Cart</button>
 </div>
