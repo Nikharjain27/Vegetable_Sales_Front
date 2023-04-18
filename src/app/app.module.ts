@@ -28,6 +28,7 @@ import { MatCommonModule } from '@angular/material/core';
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     // NoopAnimationsModule,
     // MatToolbarModule,
     // MatButtonModule,
