@@ -7,7 +7,7 @@
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Id</th>
-                    <th scope="col">First</th>
+                    <th scope="col">Name</th>
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Address</th>
@@ -24,12 +24,11 @@
                             <td>{{customer.customerPhone}}</td>
                             <td>{{customer.customerAddress}}</td>
                             <td>{{customer.customerPincode}}</td>
-                            <button type="button" class="btn btn-outline-dark">Edit</button>&nbsp;
-                            <button type="button" class="btn btn-outline-danger">Delete</button>&nbsp;
+                            <button mat-raised-button color="primary" type="button" (click)="openEditCustomerForm()"  >Edit</button>&nbsp;
+                            <button mat-raised-button color ="warn" type="button" (click)="deleteCustomer(customer.customerId)">Delete</button>&nbsp;
                             <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
                         </tr>
                        </tbody>
-            
               </table>
         </div>
     </div>
@@ -58,16 +57,52 @@
                             <td>{{product.productDescription}}</td>
                             <td>{{product.productPrice}}</td>
                             <td>{{product.productType}}</td>
-                            <button type="button" class="btn btn-outline-dark">Edit</button>&nbsp;
-                            <button type="button" class="btn btn-outline-danger">Delete</button>&nbsp;
+                            <button type="button" mat-raised-button color="primary" (click)="openEditProductForm()">Edit</button>&nbsp;
+                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;
                             <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
                         </tr>
                        </tbody>
-            
               </table>
         </div>
     </div>
 </section>
 
 
-  
+<section class="mt-5">
+    <div class="container">
+        <div class="img-main-banner">
+            <h1>All Orders</h1>
+            <table  class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Billing Date</th>
+                    <th scope="col">Billing Amount</th>
+                    <th scope="col">Billing Address</th>
+                    <th scope="col">PaymentId</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <!-- <tbody> -->
+                    <tbody >
+                        <tr *ngFor="let product of products">
+                            <td>{{product.productId}}</td>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productDescription}}</td>
+                            <td>{{product.productPrice}}</td>
+                            <td>{{product.productType}}</td>
+                            <td>{{product.productType}}</td>
+                            <td>{{product.productType}}</td>
+                            <td>{{product.productType}}</td>
+                            <button type="button" mat-raised-button color="primary" (click)="openEditProductForm()">Edit</button>&nbsp;
+                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;
+                            <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
+                        </tr>
+                       </tbody>
+              </table>
+        </div>
+    </div>
+</section>

@@ -18,6 +18,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminComponent } from './components/admin/admin.component';
 import { CustomerService } from './services/customer.service';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatIconModule} from '@angular/material/icon';
+import { EditComponent } from './components/edit/edit.component';
+import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { DeleteComponent } from './components/delete/delete.component';
+
 
 @NgModule({
   declarations: [
@@ -32,13 +41,21 @@ import { FormsModule } from '@angular/forms';
     PaymentComponent,
     CartComponent,
     OrderComponent,
-    AdminComponent
+    AdminComponent,
+    EditComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [
     ProductService,
