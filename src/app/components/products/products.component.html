@@ -1,16 +1,16 @@
 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
     <h1>Eat natural, eat organic.</h1>
     <mat-form-field appearance="outline" class="form-group">
-        <mat-label>Search Product</mat-label>
+        <mat-label>Search Vegetable</mat-label>
         <input type="text" matInput [(ngModel)]="searchText">
     </mat-form-field>
 </div>
 
-<mat-grid-list cols="4" rowHeight="400px" *ngIf="products">
-    <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">
-
+<mat-grid-list cols="4" rowHeight="400px"  *ngIf="products">
+    <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">  
+        
         <mat-card class="mat-card">
-            <img style="border-radius: 5px; height: 150px;" sizes="100px" mat-card-image src="{{product.productImage}}"
+            <img style="border-radius: 5px; height: 150px; width: 100px;" sizes="100px" mat-card-image src="{{product.productImage}}"
                 alt="Dish Photo">
             <mat-card-content>
                 <mat-card-title>{{ product.productName }}</mat-card-title>

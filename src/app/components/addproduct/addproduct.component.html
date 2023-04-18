@@ -1,7 +1,6 @@
-<h3 mat-dialog-title>Add Product</h3>
+<h3 mat-dialog-title>Add vegetable</h3>
 <div mat-dialog-content>
     <form (ngSubmit)="onSubmit()" #myForm="ngForm">
-
 <mat-form-field appearance="outline" class="form-group">
     <mat-label>Product Name</mat-label>
     <input type="text" id="productName" required matInput placeholder="Eg. Potato" [(ngModel)]="product.productName"
@@ -17,13 +16,12 @@
         required #productTypeField="ngModel">
         <div [hidden]="productTypeField.valid || productTypeField.untouched" class="alert alert-danger">
             Select Product Type
-        </div>>
-        <!-- <mat-option value="Breakfast">Breakfast</mat-option>
-        <mat-option value="Lunch">Lunch</mat-option>
-        <mat-option value="Dinner">Dinner</mat-option>
-        <mat-option value="Lunch">Lunch And Dinner</mat-option>
-        <mat-option value="Sweet">Sweet</mat-option>
-        <mat-option value="Beverage">Beverage</mat-option> -->
+        </div>
+        <mat-option value="Allium">Allium</mat-option>
+        <mat-option value="Cruciferous">Cruciferous</mat-option>
+        <mat-option value="Marrow">Marrow</mat-option> 
+        <mat-option value="Leafy green">Leafy green</mat-option> 
+        <mat-option value="Root">Root</mat-option> 
     </mat-select>
 </mat-form-field>
 
@@ -38,7 +36,7 @@
 
 <mat-form-field appearance="outline" class="form-group">
     <mat-label>Product Price</mat-label>
-    <input type="number" id="productPrice" matInput placeholder="99" required [(ngModel)]="product.productPrice"
+    <input type="number" id="productPrice" matInput placeholder="₹99" required [(ngModel)]="product.productPrice"
         name="productPrice" required #productPriceField="ngModel">
     <div [hidden]="productPriceField.valid || productPriceField.untouched" class="alert alert-danger">
         Enter Product Price
