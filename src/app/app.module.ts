@@ -35,9 +35,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import {MatTabsModule} from '@angular/material/tabs';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
