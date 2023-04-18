@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Customer } from 'src/app/entities/customer';
 import { Payment } from 'src/app/entities/payment';
 import { PaymentDTO } from 'src/app/entities/payment-dto';
+import { CustomerService } from 'src/app/services/customer.service';
 import { PaymentService } from 'src/app/services/payment.service';
 
 @Component({
@@ -15,28 +17,39 @@ export class PaymentComponent implements OnInit {
 
   payment: Payment = new Payment();
   paymentDto: PaymentDTO = new PaymentDTO();
+  customer: Customer;
+  email: any = localStorage.getItem("customerEmailId");
 
   ngForm1: FormGroup;
   ngForm2: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<PaymentComponent>, private paymentService: PaymentService,
-    private fb: FormBuilder, private router: Router
+    private fb: FormBuilder, private router: Router, private customerService: CustomerService
   ) {
     this.validateForm1();
     this.validateForm2();
   }
 
   ngOnInit(): void {
-
+    this.customerService.getCustomerByEmail(this.email).subscribe({
+      next: (data) => {
+        this.customer = data;
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err);
+        console.log("Error while fetching user data");
+      }
+    })
   }
 
   onCard() {
     this.paymentDto.type = "Card";
-    this.paymentService.convertOrderToPayment(1, this.paymentDto).subscribe({
+    this.paymentService.convertOrderToPayment(this.customer.customerId, this.paymentDto).subscribe({
       next: (data) => {
         console.log("Payment successful");
-        this.router.navigate(['/paymentdone']);
+        this.router.navigate(['/order']);
       },
       error: (err) => {
         console.log(err);
@@ -46,10 +59,10 @@ export class PaymentComponent implements OnInit {
 
   onUPI() {
     this.paymentDto.type = "UPI";
-    this.paymentService.convertOrderToPayment(1, this.paymentDto).subscribe({
+    this.paymentService.convertOrderToPayment(this.customer.customerId, this.paymentDto).subscribe({
       next: (data) => {
         console.log("Payment successful");
-        this.router.navigate(['/paymentdone']);
+        this.router.navigate(['/order']);
       },
       error: (err) => {
         console.log(err);

@@ -30,6 +30,7 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ProfileComponent,
     PaymentComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    UpdateCustomerComponent
   ],
   imports: [
     MatProgressSpinnerModule,
