@@ -30,6 +30,12 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatGridListModule } from "@angular/material/grid-list";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatExpansionModule } from '@angular/material/expansion';
+import { SearchProductPipe } from './components/search/search-product.pipe';
+import { CURDproductComponent } from './components/curdproduct/curdproduct.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
+
+
 
 
 @NgModule({
@@ -44,29 +50,32 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ProfileComponent,
     PaymentComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    SearchProductPipe,
+    CURDproductComponent,
+    AddproductComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
-    MatCommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTabsModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatIconModule,
+    MatCommonModule,
     MatPaginatorModule,
     MatGridListModule,
     MatExpansionModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,10 +8,13 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { CURDproductComponent } from './components/curdproduct/curdproduct.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
-  { path: 'product', component: ProductsComponent },
+  { path: 'product-list-for-customer', component: ProductsComponent },
+  { path: 'admin-product-list', component: CURDproductComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'order', component: OrderComponent },
@@ -19,6 +22,7 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'cart', component: CartComponent },
   { path: 'signup', component: SignUpComponent },
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

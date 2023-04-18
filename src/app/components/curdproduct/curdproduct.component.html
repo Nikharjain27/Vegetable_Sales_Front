@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-around; margin-top: 20px;">
-    <h1>Eat natural, eat organic.</h1>
+    <h1>Products List</h1>
     <mat-form-field appearance="outline" class="form-group">
         <mat-label>Search Product</mat-label>
         <input type="text" matInput [(ngModel)]="searchText">
@@ -8,7 +8,6 @@
 
 <mat-grid-list cols="4" rowHeight="400px" *ngIf="products">
     <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">
-
         <mat-card class="mat-card">
             <img style="border-radius: 5px; height: 150px;" sizes="100px" mat-card-image src="{{product.productImage}}"
                 alt="Dish Photo">
@@ -17,13 +16,16 @@
                 <mat-card-subtitle>{{ product.productType }}</mat-card-subtitle>
             </mat-card-content>
             <mat-card-subtitle>{{product.productDescription}}</mat-card-subtitle>
-            <mat-card-title>{{ product.productPrice | currency: 'INR' }}</mat-card-title>
+            <mat-card-title>₹{{ product.productPrice }}</mat-card-title>
             <mat-card-actions style="display: flex; justify-content: center;">
-                <button mat-raised-button color="accent" (click)="addToCart(product)">Add to cart</button>
+                <button mat-raised-button color="primary" (click)="updateProductDialog(product)">Update</button>
+                <button mat-raised-button color="accent" (click)="deleteProduct(product.productId)">Delete</button>
             </mat-card-actions>
         </mat-card>
     </mat-grid-tile>
 </mat-grid-list>
-<div align="center">
-    <button mat-raised-button color="primary" [routerLink]="['/cart']">Go to Cart</button>
+<!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+
+<div mat-dialog-actions align="center">
+    <button mat-raised-button color="warn" (click)="openProductDialog()">Add Product</button>
 </div>
