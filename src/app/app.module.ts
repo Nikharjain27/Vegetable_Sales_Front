@@ -66,10 +66,6 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-  ],
-  providers: [
-    ProductService,
-    CustomerService,
     BrowserAnimationsModule,
     MatDialogModule,
     FormsModule,
@@ -87,6 +83,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatPaginatorModule,
     MatGridListModule,
     MatExpansionModule,
+  ],
+  providers: [
+    ProductService,
+    CustomerService,
   ],
   bootstrap: [AppComponent]
 })
