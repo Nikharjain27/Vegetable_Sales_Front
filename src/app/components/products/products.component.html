@@ -9,8 +9,8 @@
 <mat-grid-list cols="4" rowHeight="400px"  *ngIf="products">
     <mat-grid-tile *ngFor="let product of products | searchProduct: searchText">  
         
-        <mat-card class="mat-card">
-            <img style="border-radius: 5px; height: 150px; width: 100px;" sizes="100px" mat-card-image src="{{product.productImage}}"
+        <mat-card class="mat-card" style="width: 200px;">
+            <img style="border-radius: 5px; height: 150px; width: 200px;" sizes="100px" mat-card-image src="{{product.productImage}}"
                 alt="Dish Photo">
             <mat-card-content>
                 <mat-card-title>{{ product.productName }}</mat-card-title>
