@@ -47,7 +47,7 @@
       </table>
       <br/>
       <h1>Cart Items</h1>
-      <table class="table table-bordered" *ngFor="let cartItem of cartItems; let i = index" style="background-color: white;border-radius: 10px;max-width: 500px;margin: auto;">
+      <table class="table table-bordered" style="background-color: white;border-radius: 10px;max-width: 500px;margin: auto;">
         <thead>
             <th>Cart No.</th>
             <th>Product Image</th>
@@ -55,7 +55,7 @@
             <th>Product Price</th>
             <th>Product Quantity</th>
         </thead>
-        <tbody>
+        <tbody *ngFor="let cartItem of cartItems; let i = index">
             <td>{{i+1}}</td>
             <td><img src="{{cartItem.cartItemImage}}" alt="productImage" height="100px"></td>
             <td>{{cartItem.cartItemName}}</td>
