@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const baseUrl = 'http://localhost:9091/cart-section/';
+const baseUrl = 'http://localhost:9091/cart-section';
 
 @Injectable({
   providedIn: 'root',
@@ -13,9 +13,10 @@ export class CartService {
   customerEmail = localStorage.getItem('customerEmailId');
 
   token = localStorage.getItem('authenticationToken');
+  cartId = localStorage.getItem('customerCartId');
 
-  getCart(cartId: number): Observable<any> {
-    return this.http.get(`${baseUrl}/${cartId}`, {
+  getCart(cartID: number): Observable<any> {
+    return this.http.get(`${baseUrl}/${this.cartId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: `Bearer ${this.token}`,
