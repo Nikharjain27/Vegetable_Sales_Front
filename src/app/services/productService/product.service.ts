@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductService {
 
-  private BASEURL = "http://localhost:9091/api/v1/product";
+  private BASEURL = "http://localhost:9091/product-section/products";
   constructor(private http:HttpClient) { }
 
   getAllProducts(): Observable<any> {

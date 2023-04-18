@@ -20,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card'
 import { MatButtonModule } from '@angular/material/button';
+import  { MatIconModule } from '@angular/material/icon';
 import { SearchProductPipe } from './components/search/search-product.pipe';
 import { FormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input';
@@ -60,7 +61,8 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     MatInputModule,
     ReactiveFormsModule,
     MatDialogModule,
-    
+    MatIconModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

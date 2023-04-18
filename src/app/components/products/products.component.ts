@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/entity/product/product';
 import { ProductService } from 'src/app/services/productService/product.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { CartService } from 'src/app/services/cartService/cart.service';
+import { CartComponent } from '../cart/cart.component';
 
 @Component({
   selector: 'app-products',
@@ -16,7 +18,8 @@ export class ProductsComponent implements OnInit {
   searchText = '';
   dataSource = new MatTableDataSource();
 
-  constructor(private prodService: ProductService, private router: Router) { }
+
+  constructor(private prodService: ProductService, private router: Router , private cartService : CartService) { }
 
   ngOnInit(): void {
      this.getAllProducts();
@@ -29,16 +32,16 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  // addToCart(product : Product){
-  //   this.cartService.addToCart(1,product.productId).subscribe({
-  //     next: (data) => {
-  //       alert("Added to cart");
-  //     },
-  //     error: (err) => {
-  //       alert("Error adding product")
-  //     }
-  //   })
-  // }
+  addToCart(product : Product){
+    this.cartService.addToCart(1,product.productId).subscribe({
+      next: () => {
+        alert("Added to cart");
+      },
+      error: () => {
+        alert("Error adding product")
+      }
+    })
+  }
 
   setProducts = (data: any) =>{
     this.products=data;
