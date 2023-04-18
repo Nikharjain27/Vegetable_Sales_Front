@@ -11,17 +11,17 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
-  { path: 'product', component: ProductsComponent  },
-  { path: 'home',  component: HomeComponent},
-  { path: 'login',  component: LoginComponent},
-  { path: 'order',  component: OrderComponent},
-  { path: 'profile',  component: ProfileComponent},
-  { path: 'payment',  component: PaymentComponent},
-  { path: 'cart',  component: CartComponent}, 
-  {path: 'signup', component: SignUpComponent}
+  { path: 'product', component: ProductsComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'cart', component: CartComponent },
+  { path: 'signup', component: SignUpComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
