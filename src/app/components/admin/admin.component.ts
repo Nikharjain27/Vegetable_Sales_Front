@@ -69,6 +69,19 @@ export class AdminComponent implements OnInit {
     });
   }
 
+  openEditOrderForm(){
+    let dialogRef = this._dialog.open(EditComponent,{
+      width: '600px',
+      height: 'auto',
+      data:{whichform:"order",
+            oddata: "oderdata"
+      }
+    });
+    dialogRef.afterClosed().subscribe(e=>{
+      console.log("dailog closed");
+    });
+  }
+
   openDeleteBox(){
     this._dialog.open(DeleteComponent);
   }
