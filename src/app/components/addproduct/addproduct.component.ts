@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Product } from 'src/app/entity/product/product';
-import { ProductService } from 'src/app/services/productService/product.service';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
+import { Product } from 'src/app/entities/product';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({

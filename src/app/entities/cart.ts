@@ -1,4 +1,5 @@
-import { CartItem } from '../cartItem/cart-item';
+import { CartItem } from "./cart-item";
+
 
 export class Cart {
   cartId: number;

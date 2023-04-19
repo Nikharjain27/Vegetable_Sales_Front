@@ -1,8 +1,6 @@
-export class Payment {
-    cardNumber: number;
-    cardHolderName: string;
-    mm: number;
-    yy: number;
-    cvv: number;
-    upi: string;
+export class Payment{
+    paymentId: number;
+    paymentDate: string;
+    paymentTime: string;
+    paymentType: string;
 }
