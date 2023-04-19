@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { ProductsComponent } from './components/products/products.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -22,16 +21,22 @@ import { MatCardModule } from "@angular/material/card";
 import { MatIconModule } from "@angular/material/icon";
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { ProductsComponent } from './components/products/products.component';
+import { SearchProductPipe } from './components/search/search-product.pipe';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCommonModule } from '@angular/material/core';
 import { MatTabsModule } from "@angular/material/tabs";
-import { MatGridListModule } from "@angular/material/grid-list";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 
+import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -46,29 +51,33 @@ import { UpdateCustomerComponent } from './components/update-customer/update-cus
     PaymentComponent,
     CartComponent,
     OrderComponent,
-    UpdateCustomerComponent
+    UpdateCustomerComponent,
+    SearchProductPipe,
+    CURDproductComponent,
+    AddproductComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MatDialogModule,
-    FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
-    MatCommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTabsModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatIconModule,
+    MatCommonModule,
     MatPaginatorModule,
     MatGridListModule,
     MatExpansionModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
