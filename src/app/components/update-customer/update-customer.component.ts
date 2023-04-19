@@ -33,6 +33,7 @@ export class UpdateCustomerComponent implements OnInit {
       next: (data) => {
         alert("Customer updated successfully");
         console.log(data);
+        this.router.navigate(['/profile']);
       },
       error: (error) => {
         console.log("Error updating customer data");
