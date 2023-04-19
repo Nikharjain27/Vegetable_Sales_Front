@@ -77,7 +77,11 @@
                 </div>
             </div>
         </div>
-        <button mat-raised-button color="primary" (click)="showOrders()">Orders</button>
-        <button mat-raised-button color="primary" (click)="updateCustomer(customer)">Update</button>
+        <div class="row">
+            <button class="col-lg-3" style="margin-right: 400px; margin-left: 50px;" mat-raised-button color="primary"
+                (click)="showOrders()">Orders</button>
+            <button class="col-lg-3" mat-raised-button color="primary" (click)="updateCustomer(customer)">Update
+                Profile</button>
+        </div>
     </div>
 </section>
