@@ -4,6 +4,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Payment } from 'src/app/entities/payment';
 import { PaymentDTO } from 'src/app/entities/payment-dto';
+import { PaymentUi } from 'src/app/entities/payment-ui';
 import { PaymentService } from 'src/app/services/payment.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { PaymentService } from 'src/app/services/payment.service';
 })
 export class PaymentComponent implements OnInit {
 
-  payment: Payment = new Payment();
+  payment: PaymentUi = new PaymentUi();
   paymentDto: PaymentDTO = new PaymentDTO();
 
   ngForm1: FormGroup;
