@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from 'src/app/entity/cart/cart';
-import { CartService } from 'src/app/services/cartService/cart.service';
+import { Cart } from 'src/app/entities/cart';
+import { CartService } from 'src/app/services/cart.service'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { CartItem } from 'src/app/entity/cartItem/cart-item';
+import { CartItem } from '../entities/past-cart-item'; 
 
 @Component({
   selector: 'app-cart',
