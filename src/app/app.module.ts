@@ -38,6 +38,7 @@ import { CURDproductComponent } from './components/crudproduct/curdproduct.compo
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
