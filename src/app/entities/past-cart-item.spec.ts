@@ -1,7 +1,7 @@
-import { PastCartItem } from './past-cart-item';
+import { CartItem } from './past-cart-item';
 
-describe('PastCartItem', () => {
+describe('CartItem', () => {
   it('should create an instance', () => {
-    expect(new PastCartItem()).toBeTruthy();
+    expect(new CartItem()).toBeTruthy();
   });
 });

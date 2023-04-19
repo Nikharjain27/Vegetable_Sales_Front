@@ -1,11 +1,11 @@
-import { PastCartItem } from "./past-cart-item";
-import { PaymentRes } from "./payment-res";
+import { CartItem } from "./past-cart-item";
+import { Payment } from "./payment"
 
-export class Order {
+export class Order{
     orderId: number;
-    billingDate: any;
+    billingDate: string;
     billingAmount: number;
     billingAddress: string;
-    payment: PaymentRes;
-    cartItems: PastCartItem[];
+    payment: Payment;
+    cartItems: CartItem[];
 }
