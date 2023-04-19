@@ -1,6 +1,6 @@
 <h1 style="margin-top: 15px; margin-left: 90px"><b>My cart</b></h1>
 
-<div class="cart">
+<div class="row g-4 row-cols-lg-5 row-cols-2 row-cols-md-3">
   <div *ngIf="currentCart">
     <div
       class="list-cart-item"
@@ -8,13 +8,13 @@
       [class.active]="i == currentIndex"
       (click)="setActiveCartItem(cartItem, i)"
     >
-      <!-- <mat-grid-list cols="4" rowHeight="4:1"> -->
+    <mat-grid-list cols="4" rowHeight="4:1">
       <mat-card class="cart-item-card">
         <mat-card-title-group
-          ><mat-card-title>{{
-            cartItem.cartItemName
-          }}</mat-card-title></mat-card-title-group
-        >
+        ><mat-card-title>{{
+          cartItem.cartItemName
+        }}</mat-card-title></mat-card-title-group
+      >
         <mat-card-title-group>
           <!-- <mat-card-subtitle>{{ cartItem.cartItemType }}</mat-card-subtitle> -->
           <img
@@ -60,7 +60,7 @@
           </button>
         </mat-card-actions>
       </mat-card>
-      <!-- </mat-grid-list> -->
+    </mat-grid-list>
     </div>
   </div>
 

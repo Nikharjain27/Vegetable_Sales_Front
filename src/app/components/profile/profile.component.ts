@@ -10,7 +10,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class ProfileComponent implements OnInit {
 
   customer: Customer;
-  email: any = localStorage.getItem("customerEmailId");
+  email: any = localStorage.getItem("customerEmail");
 
   constructor(private customerService: CustomerService) { }
 
@@ -25,7 +25,6 @@ export class ProfileComponent implements OnInit {
         console.log(data);
       },
       error: (err) => {
-        console.log(err);
         console.log("Error while fetching user data");
       }
     })

@@ -1,5 +1,5 @@
 import { Cart } from "./cart";
-import { Order } from "./order";
+import { Payment } from "./payment";
 
 export class Customer {
     customerId: number;
@@ -11,5 +11,5 @@ export class Customer {
     customerPincode: string;
     customerCity: string;
     cart:Cart;
-    order:Order[];
+    payment:Payment
 }

@@ -1,4 +1,4 @@
-import { PastCartItem } from "./past-cart-item";
+import { CartItem } from "./past-cart-item";
 import { Payment } from "./payment"
 
 export class Order{
@@ -7,5 +7,5 @@ export class Order{
     billingAmount: number;
     billingAddress: string;
     payment: Payment;
-    cartItems: PastCartItem[];
+    cartItems: CartItem[];
 }
