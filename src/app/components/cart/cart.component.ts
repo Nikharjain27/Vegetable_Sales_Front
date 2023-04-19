@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Cart } from 'src/app/entity/cart/cart';
-import { CartService } from 'src/app/services/cartService/cart.service';
+
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { CartItem } from 'src/app/entity/cartItem/cart-item';
+import { CartItem } from 'src/app/entities/cart-item';
+import { Cart } from 'src/app/entities/cart';
+import { CartService } from 'src/app/services/cart.service';
+import { PaymentComponent } from '../payment/payment.component';
+
 
 @Component({
   selector: 'app-cart',
@@ -81,19 +84,19 @@ export class CartComponent implements OnInit {
     this.currentIndex = index;
   }
 
-  // openDialog() {
-  //   let dialogRef = this.dialog.open(PaymentComponent, {
-  //     width: '650px',
-  //     height: '450px',
-  //   });
+  openDialog() {
+    let dialogRef = this.dialog.open(PaymentComponent, {
+      width: '650px',
+      height: '450px',
+    });
 
-  //   dialogRef.afterOpened().subscribe(res => {
-  //     console.log("Dialog Opened");
-  //   });
+    dialogRef.afterOpened().subscribe(res => {
+      console.log("Dialog Opened");
+    });
 
-  //   dialogRef.afterClosed().subscribe(res => {
-  //     console.log("Dialog Closed");
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(res => {
+      console.log("Dialog Closed");
+    });
+  }
 
 }
