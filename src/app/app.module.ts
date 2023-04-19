@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BannerComponent } from './components/banner/banner.component';
-import { ProductsComponent } from './components/products/products.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
@@ -29,13 +28,17 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatCardModule } from "@angular/material/card";
+import { ProductsComponent } from './components/products/products.component';
+import { SearchProductPipe } from './components/search/search-product.pipe';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCommonModule } from '@angular/material/core';
 import { MatTabsModule } from "@angular/material/tabs";
-import { MatGridListModule } from "@angular/material/grid-list";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { AddproductComponent } from './components/addproduct/addproduct.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
     OrderComponent,
     AdminComponent,
     EditComponent,
-    DeleteComponent
+    DeleteComponent,
+    SearchProductPipe,
+    CURDproductComponent,
+    AddproductComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
@@ -70,19 +76,23 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
-    MatCommonModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatTabsModule,
+    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatCardModule,
-    MatIconModule,
+    MatCommonModule,
     MatPaginatorModule,
     MatGridListModule,
     MatExpansionModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
   ],
   providers: [
     ProductService,

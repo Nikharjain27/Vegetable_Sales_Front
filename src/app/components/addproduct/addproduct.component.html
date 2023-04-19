@@ -1,0 +1,62 @@
+<h3 mat-dialog-title>Add vegetable</h3>
+<div mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+<mat-form-field appearance="outline" class="form-group">
+    <mat-label>Product Name</mat-label>
+    <input type="text" id="productName" required matInput placeholder="Eg. Potato" [(ngModel)]="product.productName"
+        name="productName" required #productNameField="ngModel">
+    <div [hidden]="productNameField.valid || productNameField.untouched" class="alert alert-danger">
+        Enter Product Name
+    </div>
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="form-group">
+    <mat-label>Product Type</mat-label>
+    <mat-select type="text" id="productType" placeholder="Product Type" [(ngModel)]="product.productType" name="productType"
+        required #productTypeField="ngModel">
+        <div [hidden]="productTypeField.valid || productTypeField.untouched" class="alert alert-danger">
+            Select Product Type
+        </div>
+        <mat-option value="Allium">Allium</mat-option>
+        <mat-option value="Cruciferous">Cruciferous</mat-option>
+        <mat-option value="Marrow">Marrow</mat-option> 
+        <mat-option value="Leafy green">Leafy green</mat-option> 
+        <mat-option value="Root">Root</mat-option> 
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="form-group">
+    <mat-label>Product Description</mat-label>
+    <input type="text" id="productDescription" matInput placeholder="Delicious" [(ngModel)]="product.productDescription"
+        name="productDescription" required #productDescriptionField="ngModel">
+    <div [hidden]="productDescriptionField.valid || productDescriptionField.untouched" class="alert alert-danger">
+        Enter Product Description
+    </div>
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="form-group">
+    <mat-label>Product Price</mat-label>
+    <input type="number" id="productPrice" matInput placeholder="₹99" required [(ngModel)]="product.productPrice"
+        name="productPrice" required #productPriceField="ngModel">
+    <div [hidden]="productPriceField.valid || productPriceField.untouched" class="alert alert-danger">
+        Enter Product Price
+    </div>
+</mat-form-field>
+
+<mat-form-field appearance="outline" class="form-group">
+    <mat-label>Image url</mat-label>
+    <input type="type" id="productImage" matInput placeholder="Product Image" [(ngModel)]="product.productImage"
+        name="productImage" required #productImageField="ngModel">
+    <div [hidden]="productImageField.valid || productImageField.untouched" class="alert alert-danger">
+        Enter Product Image URL
+    </div>
+</mat-form-field>
+
+<div mat-dialog-actions [align]="'center'">
+    <button type="submit" [disabled]="!myForm.form.valid" mat-raised-button color="primary"
+        mat-dialog-close>Save</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+</div>
+
+    </form>
+</div>
