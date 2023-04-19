@@ -1,4 +1,4 @@
-import { Cart } from "../entity/cart/cart";
+import { Cart } from "./cart";
 import { Payment } from "./payment";
 
 export class Customer {
