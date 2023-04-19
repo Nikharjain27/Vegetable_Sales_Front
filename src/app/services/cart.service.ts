@@ -11,7 +11,6 @@ export class CartService {
   constructor(private http: HttpClient) {}
 
   customerEmail = localStorage.getItem('customerEmailId');
-
   token = localStorage.getItem('authenticationToken');
   cartId = localStorage.getItem('customerCartId');
 

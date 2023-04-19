@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { MatTableDataSource } from '@angular/material/table';
-
-import { CartComponent } from '../cart/cart.component';
 import { Product } from 'src/app/entities/product';
 import { ProductService } from 'src/app/services/product.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { CartComponent } from '../cart/cart.component';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
