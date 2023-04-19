@@ -20,24 +20,9 @@ export class AdminComponent implements OnInit {
   constructor(private _admin: AdminService, private _dialog: MatDialog) { }
   
   ngOnInit(): void {
-
-    // this._admin.getAllCustomers().subscribe(data=>{
-    //   this.customers=data;
-    // });
-
     this.getAllCustomers();
-
-    this._admin.getAllProducts().subscribe(data=>{
-      this.products=data;
-    });
-
-   this._admin.getAllOders().subscribe(data=>{
-    this.orders=data;
-   });
-
-  //  this._admin.deleteCustomer(customerId).subscribe(data=>{
-  //   this.customers=data;
-  //  })
+    this.getAllProduct();
+    this.getAllOder();
   }
 
   private getAllCustomers(){
@@ -46,6 +31,21 @@ export class AdminComponent implements OnInit {
     });
 
   }
+
+  private getAllProduct(){
+    this._admin.getAllProducts().subscribe(data=>{
+      this.products=data;
+    });
+
+  }
+
+  private getAllOder(){
+    this._admin.getAllOders().subscribe(data=>{
+      this.orders=data;
+     });
+  }
+
+
   openEditCustomerForm(){
     let dialogRef = this._dialog.open(EditComponent,{
       width: '600px',
@@ -76,19 +76,25 @@ export class AdminComponent implements OnInit {
 
   deleteCustomer(customerId: number){
     return this._admin.deleteCustomer(customerId).subscribe({
-
       next: (res) =>{
-      
        alert("Customer deleted successfully");
-      
        this.getAllCustomers();
-      
       },
-      
- error:() => {
-      
-    alert("Error while deleting product");
-        }
+      error:() => {
+      alert("Error while deleting customer");
+      }
       });
+  }
+
+  deleteProducts(productId: number){
+    return this._admin. deleteProduct(productId).subscribe({
+      next: (res) =>{
+        alert("Product deleted successfully");
+        this.getAllProduct();
+       },  
+        error:() => {
+       alert("Error while deleting product");
+      }
+       });
   }
 }

@@ -58,7 +58,7 @@
                             <td>{{product.productPrice}}</td>
                             <td>{{product.productType}}</td>
                             <button type="button" mat-raised-button color="primary" (click)="openEditProductForm()">Edit</button>&nbsp;
-                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;
+                            <button type="button" mat-raised-button color="warn"  (click)="deleteProducts(product.productId)">Delete</button>&nbsp;
                             <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
                         </tr>
                        </tbody>
@@ -90,13 +90,13 @@
                     <tbody >
                         <tr *ngFor="let order of orders">
                             <td>{{order.orderId}}</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>{{order.billingDate}}</td>
+                            <td>{{order.billingAmount}}</td>
+                            <td>{{order.billingAddress}}</td>
+                            <td>{{order.payment.paymentId}}</td>
+                            <td>{{order.payment.paymentDate}}</td>
+                            <td>{{order.payment.paymentTime}}</td>
+                            <td>{{order.payment.paymentType}}</td>
                             <button type="button" mat-raised-button color="primary" (click)="openEditProductForm()">Edit</button>&nbsp;
                             <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;
                             <!-- <button type="button" class="btn btn-outline-success">Add</button> -->

@@ -29,4 +29,8 @@ export class AdminService {
   deleteCustomer(customerId: number): Observable<Customer[]>{
     return this.httpClient.delete<Customer[]>(`${this.baseURL}/delete/customer/${customerId}`);
   }
+
+  deleteProduct(productId: number): Observable<Product[]>{
+    return this.httpClient.delete<Product[]>(`${this.baseURL}/delete/products/${productId}`);
+  }
 }
