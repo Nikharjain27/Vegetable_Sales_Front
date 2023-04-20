@@ -3,7 +3,7 @@ import { Cart } from 'src/app/entities/cart';
 import { CartService } from 'src/app/services/cart.service'; 
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { CartItem } from '../entities/past-cart-item'; 
+import { CartItem } from 'src/app/entities/cart-item';
 
 @Component({
   selector: 'app-cart',
