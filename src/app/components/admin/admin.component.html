@@ -1,108 +1,29 @@
-<div class="conatiner">
-<section class="mt-5">
-    <div class="container">
-        <div class="img-main-banner">
-            <h1>All Customers</h1>
-            <table  class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Pincode</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <!-- <tbody> -->
-                    <tbody >
-                        <tr *ngFor="let customer of customers">
-                            <td>{{customer.customerId}}</td>
-                            <td>{{customer.customerName}}</td>
-                            <td>{{customer.customerEmail}}</td>
-                            <td>{{customer.customerPhone}}</td>
-                            <td>{{customer.customerAddress}}</td>
-                            <td>{{customer.customerPincode}}</td>
-                            <button mat-raised-button color="primary" type="button" (click)="openEditCustomerForm()"  >Edit</button>&nbsp;
-                            <button mat-raised-button color ="warn" type="button" (click)="deleteCustomer(customer.customerId)">Delete</button>&nbsp;
-                            <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
-                        </tr>
-                       </tbody>
-              </table>
-        </div>
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2 mt-5">
+        <mat-card style="background-color: #f6f1f1">
+          <mat-action-list>
+            <div mat-subheader>Menu</div>
+            <button routerLink="/admin/customers" mat-list-item>
+              <mat-icon mat-list-icon>groups</mat-icon> Customers
+            </button>
+            <button mat-list-item routerLink="/admin/products">
+              <mat-icon mat-list-icon>inventory_2</mat-icon> Products
+            </button>
+            <button mat-list-item routerLink="/admin/orders">
+              <mat-icon mat-list-icon>list_alt</mat-icon> Order
+            </button>
+            <!-- <button mat-list-item routerLink="/admin/profile">
+        <mat-icon mat-list-icon>logout</mat-icon> Logout
+      </button> -->
+          </mat-action-list>
+        </mat-card>
+      </div>
+
+      <div class="col-md-9 mt-5">
+        <router-outlet></router-outlet>
+      </div>
     </div>
-</section>
+  </div>
 </div>
-<section class="mt-5">
-    <div class="container">
-        <div class="img-main-banner">
-            <h1>All Products</h1>
-            <table  class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Descripton</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <!-- <tbody> -->
-                    <tbody >
-                        <tr *ngFor="let product of products">
-                            <td>{{product.productId}}</td>
-                            <td>{{product.productName}}</td>
-                            <td>{{product.productDescription}}</td>
-                            <td>{{product.productPrice}}</td>
-                            <td>{{product.productType}}</td>
-                            <button type="button" mat-raised-button color="primary" (click)="openEditProductForm()">Edit</button>&nbsp;
-                            <button type="button" mat-raised-button color="warn"  (click)="deleteProducts(product.productId)">Delete</button>&nbsp;
-                            <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
-                        </tr>
-                       </tbody>
-              </table>
-        </div>
-    </div>
-</section>
-
-
-<section class="mt-5">
-    <div class="container">
-        <div class="img-main-banner">
-            <h1>All Orders</h1>
-            <table  class="table">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Billing Date</th>
-                    <th scope="col">Billing Amount</th>
-                    <th scope="col">Billing Address</th>
-                    <th scope="col">PaymentId</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Time</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Action</th>
-                </tr>
-                </thead>
-                <!-- <tbody> -->
-                    <tbody >
-                        <tr *ngFor="let order of orders">
-                            <td>{{order.orderId}}</td>
-                            <td>{{order.billingDate | date}}</td>
-                            <td>{{order.billingAmount}}</td>
-                            <td>{{order.billingAddress}}</td>
-                            <!-- <td>{{order.payment.paymentId}}</td>
-                            <td>{{order.payment.paymentDate}}</td>
-                            <td>{{order.payment.paymentTime}}</td>
-                            <td>{{order.payment.paymentType}}</td> -->
-                            <button type="button" mat-raised-button color="primary" (click)="openEditOrderForm()">Edit</button>&nbsp;
-                            <button type="button" mat-raised-button color="warn">Delete</button>&nbsp;
-                            <!-- <button type="button" class="btn btn-outline-success">Add</button> -->
-                        </tr>
-                       </tbody>
-              </table>
-        </div>
-    </div>
-</section>

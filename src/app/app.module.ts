@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {MatListModule} from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,6 +39,10 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+import {MatTableModule} from '@angular/material/table';
+import { UpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
+import { UpdateProductComponent } from './components/admin/update-product/update-product.component';
+import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +63,9 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     SearchProductPipe,
     CURDproductComponent,
     AddproductComponent,
+    UpdateCustomerComponent,
+    UpdateProductComponent,
+    UpdateOrderComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
@@ -93,6 +100,8 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     MatExpansionModule,
     BrowserAnimationsModule,
     MatSelectModule,
+    MatTableModule,
+    MatListModule,
   ],
   providers: [
     ProductService,

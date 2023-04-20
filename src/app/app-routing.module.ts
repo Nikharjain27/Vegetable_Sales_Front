@@ -10,6 +10,9 @@ import { ProductsComponent } from './components/products/products.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
+import { UpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
+import { UpdateProductComponent } from './components/admin/update-product/update-product.component';
+import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 
 
 const routes: Routes = [
@@ -21,7 +24,7 @@ const routes: Routes = [
   { path: 'profile',  component: ProfileComponent},
   { path: 'payment',  component: PaymentComponent},
   { path: 'cart',  component: CartComponent}, 
-  { path: 'admin',  component: AdminComponent}, 
+  { path: 'admin',  component: AdminComponent , children:[{path: 'customers', component: UpdateCustomerComponent},{path: '', component: UpdateCustomerComponent},{path: 'products', component: UpdateProductComponent},{path: 'orders', component: UpdateOrderComponent}]}, 
   {path: 'signup', component: SignUpComponent},
   { path: 'product-list-for-customer', component: ProductsComponent },
   { path: 'admin-product-list', component: CURDproductComponent },

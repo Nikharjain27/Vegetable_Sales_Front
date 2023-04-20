@@ -1,0 +1,32 @@
+
+    <mat-card>
+        <h1>All Products</h1>
+        <div class="mt-3" style="width: auto;"> 
+            <table  class="table table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Descripton</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                    <tbody >
+                        <tr *ngFor="let product of products">
+                            <td>{{product.productId}}</td>
+                            <td>{{product.productName}}</td>
+                            <td>{{product.productDescription}}</td>
+                            <td>{{product.productPrice}}</td>
+                            <td>{{product.productType}}</td>
+                            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"
+                                (click)="openEditProductForm()">Edit</button></td>
+                            <td><button type="button" class="btn btn-danger" (click)="deleteProducts(product.productId)">Delete</button></td>
+                        </tr>
+                       </tbody>
+              </table>
+        </div>
+      </mat-card>
+    
