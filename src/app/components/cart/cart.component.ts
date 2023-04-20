@@ -15,8 +15,8 @@ import { PaymentComponent } from '../payment/payment.component';
 })
 export class CartComponent implements OnInit {
 
-  public product : any = [];
-  totalAmountl : number;
+  public product: any = [];
+  totalAmountl: number;
 
   currentCart: Cart;
   currentCartItem: CartItem;
@@ -86,8 +86,8 @@ export class CartComponent implements OnInit {
 
   openDialog() {
     let dialogRef = this.dialog.open(PaymentComponent, {
-      width: '650px',
-      height: '450px',
+      width: '600px',
+      height: '500px',
     });
 
     dialogRef.afterOpened().subscribe(res => {

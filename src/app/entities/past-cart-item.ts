@@ -1,4 +1,4 @@
-export class CartItem {
+export class PastCartItem {
   pastCartItemId: number;
   cartItemName: string;
   cartItemPrice: number;

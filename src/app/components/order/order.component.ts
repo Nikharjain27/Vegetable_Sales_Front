@@ -41,18 +41,4 @@ export class OrderComponent implements OnInit {
       );
   }
 
-  openDialog() {
-    let dialogRef = this.dialog.open(PaymentComponent, {
-      width: '600px',
-      height: '500px',
-    });
-
-    dialogRef.afterOpened().subscribe(res => {
-      console.log("Dialog Opened");
-    });
-
-    dialogRef.afterClosed().subscribe(res => {
-      console.log("Dialog Closed");
-    });
-  }
 }

@@ -1,0 +1,42 @@
+<h3 mat-dialog-title>Update Customer</h3>
+<mat-dialog-content>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm" style="margin: 10px;">
+        <mat-form-field appearance="outline" class="form-group" style="width: 100%;">
+            <mat-label>Customer Name</mat-label>
+            <input type="text" id="customerName" required matInput placeholder="Full Name"
+                [(ngModel)]="customer.customerName" name="customerName" required #customerNameField="ngModel">
+            <mat-error *ngIf="customerNameField.invalid || customerNameField.untouched">Enter valid customer
+                name</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group" style="width: 100%;">
+            <mat-label>Customer Email</mat-label>
+            <input type="text" id="customerEmail" matInput placeholder="abcd@gmail.com"
+                [(ngModel)]="customer.customerEmail" name="customerEmail" required #customerEmailField="ngModel">
+            <mat-error *ngIf="customerEmailField.invalid || customerEmailField.untouched">Enter valid customer
+                email</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group" style="width: 100%;">
+            <mat-label>Customer Phone</mat-label>
+            <input type="text" id="customerPhone" matInput placeholder="9876543210" required
+                [(ngModel)]="customer.customerPhone" name="customerPhone" required #customerPhoneField="ngModel">
+            <mat-error *ngIf="customerPhoneField.invalid || customerPhoneField.untouched">Enter valid customer
+                phone</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="form-group" style="width: 100%;">
+            <mat-label>Customer Address</mat-label>
+            <input type="text" id="customerAddress" matInput placeholder="Full address" required
+                [(ngModel)]="customer.customerAddress" name="customerAddress" required #customerAddressField="ngModel">
+            <mat-error *ngIf="customerAddressField.invalid || customerAddressField.untouched">Enter valid customer
+                address</mat-error>
+        </mat-form-field>
+
+        <div mat-dialog-actions [align]="'center'">
+            <button type="submit" [disabled]="!myForm.form.valid" mat-raised-button color="primary"
+                mat-dialog-close>Save</button>
+            <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+        </div>
+    </form>
+</mat-dialog-content>
