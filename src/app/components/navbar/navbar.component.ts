@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,19 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private router: Router){}
+  loggedIn:boolean;
+
+  constructor(private router: Router,private customerService: CustomerService){}
 
   navigate(){
     this.router.navigate(['/product'])
+    this.loggedIn = this.customerService.isLoggedIn();
+    if(this.loggedIn){
+      this.router.navigate(['/profile']);
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnInit(): void {

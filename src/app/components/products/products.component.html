@@ -17,7 +17,7 @@
                 <mat-card-subtitle>{{ product.productType }}</mat-card-subtitle>
             </mat-card-content>
             <mat-card-subtitle class="text-center">{{product.productDescription}}</mat-card-subtitle>
-            <mat-card-title class="text-center">{{ product.productPrice | currency: 'INR' }}</mat-card-title>
+            <mat-card-title class="text-center">{{ product.productPrice | currency: 'INR' }} /Kg</mat-card-title>
             <mat-card-actions class="text-center" style="display: flex; justify-content: center;">
                 <button mat-raised-button color="accent" (click)="addToCart(product)">Add to cart</button>
             </mat-card-actions>

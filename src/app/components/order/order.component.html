@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <th>Billing Date</th>
-          <td>{{order.billingDate}}</td>
+          <td>{{order.billingDate | date}}</td>
           <td *ngIf="order.billingDate === null">-------------------------</td>
         </tr>
         <tr>
@@ -58,6 +58,12 @@
           <td>{{cartItem.cartItemQuantity}}</td>
         </tbody>
       </table>
+      <div class="mt-2">
+        <button class="btn btn-warning" (click)="printThePage()">Print Order Reciept</button>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-success" [routerLink]="['/home']">Home</button>
+      </div>
     </div>
   </div>
   <div class="text-center mt-3" *ngIf="order === null">

@@ -40,6 +40,8 @@ import { CURDproductComponent } from './components/crudproduct/curdproduct.compo
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
+import { AboutusComponent } from './components/aboutus/aboutus.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { PastOrdersComponent } from './components/past-orders/past-orders.compon
     CURDproductComponent,
     AddproductComponent,
     PastOrdersComponent,
+    AboutusComponent,
+    ContactusComponent,
   ],
   imports: [
     MatProgressSpinnerModule,

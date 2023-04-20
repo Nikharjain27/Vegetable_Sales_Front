@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Customer } from 'src/app/entities/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { UpdateCustomerComponent } from '../update-customer/update-customer.component';
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
   customer: Customer = new Customer();
   email: any = localStorage.getItem("customerEmailId");
 
-  constructor(private customerService: CustomerService, private dialog: MatDialog) { }
+  constructor(private customerService: CustomerService, private dialog: MatDialog,private router: Router) { }
 
   ngOnInit(): void {
     this.getCustomerData();
@@ -51,4 +52,8 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/home']);
+  }
 }

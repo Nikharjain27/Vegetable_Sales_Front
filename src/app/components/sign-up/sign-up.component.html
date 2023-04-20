@@ -1,85 +1,113 @@
-<div
-  class="text-center container mt-5 mb-5"
+<section
+  class="vh-100"
+  class="shadow p-3 mb-5 bg-white rounded"
   style="
-    max-width: 400px;
-    background-color: #f8f9fa;
-    border-radius: 25px;
+    float: left;
+    width: 70%;
+    height: 70%;
     border: 1px solid #050503;
+    margin-left: 180px;
+    margin-right: 300px;
+    margin-top: 30px;
+    margin-bottom: 50px;
   "
 >
-  <br />
-  <img src="../../../assets/img/signup.png" alt="signup.png" height="100px" />
-  <form class="g-3" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-    <div class="col-12 mt-3">
-      <span
-        *ngIf="
-          !signupForm.get('customerName')!.valid &&
-          signupForm.get('customerName')!.touched
-        "
-        class="alert-spans"
-        >Invalid Name Entered...</span
-      >
-      <input
-        class="form-label text-center"
-        type="text"
-        formControlName="customerName"
-        placeholder="Full Name"
-        style="border-radius: 5px; width: 250px"
-      /><br />
-    </div>
-    <div class="col-12">
-      <span
-        *ngIf="
-          !signupForm.get('customerPhone')!.valid &&
-          signupForm.get('customerPhone')!.touched
-        "
-        class="alert-spans"
-        >Invalid Phone Number Entered...</span
-      >
-      <input
-        class="form-label text-center"
-        type="number"
-        formControlName="customerPhone"
-        placeholder="Mobile Number"
-        style="border-radius: 5px; width: 250px"
-      /><br />
-    </div>
-    <div class="col-12">
-      <span
-        *ngIf="
-          !signupForm.get('customerEmail')!.valid &&
-          signupForm.get('customerEmail')!.touched
-        "
-        class="alert-spans"
-        >Invalid Email Entered...</span
-      >
-      <input
-        class="form-label text-center"
-        formControlName="customerEmail"
-        type="email"
-        placeholder="Email Id"
-        style="border-radius: 5px; width: 250px"
-      /><br />
-    </div>
-
-    <div class="col-12">
-      <span
-        *ngIf="
-          !signupForm.get('customerPassword')!.valid &&
-          signupForm.get('customerPassword')!.touched
-        "
-        class="alert-spans"
-        >Invalid Password Entered...</span
-      >
-      <input
-        class="form-label text-center"
-        type="password"
-        formControlName="customerPassword"
-        placeholder="Password"
-        style="border-radius: 5px; width: 250px"
-      /><br />
-    </div>
-    <!-- <div class="col-12">
+  <div class="container p-2">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-5 col-lg-5 col-xl-5">
+        <img
+          src="https://www.naxeed.com/themes/default/images/login-img.png"
+          class="img-fluid"
+          alt="Phone image"
+          style="height: 300px; width: 300;"
+        />
+      </div>
+      <div class="col-md-7 col -lg-5 col-xl-5 offset-xl-1">
+        <div
+          class="text-center container gradient-custom"
+          style="
+            max-width: 400px;
+            background-color: #f8f9fa;
+            border-radius: 25px;
+            border: 1px solid #050503;
+          "
+        >
+          <br />
+          <img
+            src="../../../assets/img/signup.png"
+            alt="signup.png"
+            height="100px"
+          />
+          <form class="g-3" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="col-12 mt-3">
+              <span
+                *ngIf="
+                  !signupForm.get('customerName')!.valid &&
+                  signupForm.get('customerName')!.touched
+                "
+                class="alert-spans"
+                >Invalid Name Entered...</span
+              >
+              <input
+                class="form-label text-center"
+                type="text"
+                formControlName="customerName"
+                placeholder="Full Name"
+                style="border-radius: 5px; width: 250px"
+              /><br />
+            </div>
+            <div class="col-12">
+              <span
+                *ngIf="
+                  !signupForm.get('customerPhone')!.valid &&
+                  signupForm.get('customerPhone')!.touched
+                "
+                class="alert-spans"
+                >Invalid Phone Number Entered...</span
+              >
+              <input
+                class="form-label text-center"
+                type="number"
+                formControlName="customerPhone"
+                placeholder="Mobile Number"
+                style="border-radius: 5px; width: 250px"
+              /><br />
+            </div>
+            <div class="col-12">
+              <span
+                *ngIf="
+                  !signupForm.get('customerEmail')!.valid &&
+                  signupForm.get('customerEmail')!.touched
+                "
+                class="alert-spans"
+                >Invalid Email Entered...</span
+              >
+              <input
+                class="form-label text-center"
+                formControlName="customerEmail"
+                type="email"
+                placeholder="Email Id"
+                style="border-radius: 5px; width: 250px"
+              /><br />
+            </div>
+            <div class="col-12">
+              <span
+                *ngIf="
+                  !signupForm.get('customerPassword')!.valid &&
+                  signupForm.get('customerPassword')!.touched
+                "
+                class="alert-spans"
+                >Invalid Password Entered...</span
+              >
+              <input
+                class="form-label text-center"
+                type="password"
+                formControlName="customerPassword"
+                placeholder="Password"
+                style="border-radius: 5px; width: 250px"
+              /><br />
+            </div>
+            <!-- <div class="col-12">
       <input
         class="form-label text-center"
         type="password"
@@ -95,9 +123,18 @@
         >Password & Confirm Password don't match...</span
       >
     </div> -->
-    <div class="col-12 mt-3">
-      <input [disabled]="!signupForm.valid" class="btn btn-success" type="submit" value="Sign up" />
+            <div class="col-12 mt-3">
+              <input
+                [disabled]="!signupForm.valid"
+                class="btn btn-success"
+                type="submit"
+                value="Sign up"
+              />
+            </div>
+            <br />
+          </form>
+        </div>
+      </div>
     </div>
-    <br />
-  </form>
-</div>
+  </div>
+</section>

@@ -31,7 +31,7 @@ export class AddproductComponent implements OnInit {
   }
 
   AddNewProduct(){
-    if(!this.product){
+    if(this.product.productName.length==0){
       this.productService.addProduct(this.product).subscribe({
         next: (data) => {
           alert("Product added successfully")
@@ -40,7 +40,7 @@ export class AddproductComponent implements OnInit {
         error: (error)=> console.log(error)
       })
     }
-    if(this.product){
+    else{
       this.productService.updateProduct(this.product).subscribe({
         next: (data)=> {
           alert("Product updated successfully");
