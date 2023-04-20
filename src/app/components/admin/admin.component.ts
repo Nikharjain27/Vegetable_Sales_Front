@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Customer } from 'src/app/entities/customer';
 import { Product } from 'src/app/entities/product';
 import { EditComponent } from '../edit/edit.component';
-import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../delete/delete.component';
 import { AdminService } from 'src/app/services/admin.service';
-import { Order } from '../entities/order';
+import { Order } from 'src/app/entities/order';
+
 
 @Component({
   selector: 'app-admin',
@@ -14,12 +15,14 @@ import { Order } from '../entities/order';
 })
 export class AdminComponent implements OnInit {
 
-  customers: Customer[];
+  
+  customers: Customer[]
   products: Product[];
   orders: Order[];
   constructor(private _admin: AdminService, private _dialog: MatDialog) { }
   
   ngOnInit(): void {
+
     this.getAllCustomers();
     this.getAllProduct();
     this.getAllOder();
@@ -110,4 +113,16 @@ export class AdminComponent implements OnInit {
       }
        });
   }
+
+  // updateCustomer(){
+  //   return this._admin.updateCustomer(customerId: number).subscribe({
+  //     next: (res) => {
+  //       alert("Customer Updated Succesfully");
+  //       this.getAllCustomers();
+  //     },
+  //     error:() => {
+  //       alert("Errore while updating Customer");
+  //     }
+  //   });
+  // }
 }

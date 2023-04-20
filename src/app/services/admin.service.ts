@@ -33,4 +33,8 @@ export class AdminService {
   deleteProduct(productId: number): Observable<Product[]>{
     return this.httpClient.delete<Product[]>(`${this.baseURL}/delete/products/${productId}`);
   }
+
+  updateCustomer(customerId: number,customer: Customer): Observable<Customer>{
+    return this.httpClient.put<Customer>(`${this.baseURL}/update/customers/${customerId}` ,customer);
+  }
 }

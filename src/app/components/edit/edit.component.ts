@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Customer } from 'src/app/entities/customer';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-edit',
@@ -8,10 +10,12 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class EditComponent implements OnInit {
 
-  constructor(public _dialogRef: MatDialogRef<EditComponent>, @Inject(MAT_DIALOG_DATA) public data:any) { }
+  customers: Customer[];
+  constructor(public _dialogRef: MatDialogRef<EditComponent>, @Inject(MAT_DIALOG_DATA) public data:any, @Inject(MAT_DIALOG_DATA) public customerData: any,) { }
 
 
   ngOnInit(): void {
+    this.customers = this.customerData.customer;
   }
 
   close(){
