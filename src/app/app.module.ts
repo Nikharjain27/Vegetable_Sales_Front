@@ -37,6 +37,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     SearchProductPipe,
     CURDproductComponent,
     AddproductComponent,
+    PastOrdersComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
