@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { Product } from 'src/app/entities/product';
-import { ProductService } from 'src/app/services/product.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddproductComponent } from '../addproduct/addproduct.component';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/entities/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-curdproduct',

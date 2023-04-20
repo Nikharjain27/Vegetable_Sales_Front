@@ -3,7 +3,7 @@ import { PaymentRes } from "./payment-res";
 
 export class Order {
     orderId: number;
-    billingDate: any;
+    billingDate: string;
     billingAmount: number;
     billingAddress: string;
     payment: PaymentRes;

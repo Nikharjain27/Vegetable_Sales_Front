@@ -18,7 +18,7 @@ export class CartService {
     return this.http.get(`${baseUrl}/${this.cartId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.token}`,
+        'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
@@ -28,7 +28,7 @@ export class CartService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${this.token}`,
+          'Authorization': `Bearer ${this.token}`,
         }),
       }
     );
@@ -38,7 +38,7 @@ export class CartService {
     return this.http.post(`${baseUrl}/${cartId}/${cartItemId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.token}`,
+        'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
@@ -48,7 +48,7 @@ export class CartService {
     {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.token}`,
+        'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
@@ -58,7 +58,7 @@ export class CartService {
     {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${this.token}`,
+        'Authorization': `Bearer ${this.token}`,
       }),
     });
   }

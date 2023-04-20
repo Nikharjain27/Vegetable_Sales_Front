@@ -8,8 +8,8 @@
                 <mat-card-title-group>
                     <mat-card-title>{{ cartItem.cartItemName }}</mat-card-title>
                     <!-- <mat-card-subtitle>{{ cartItem.cartItemType }}</mat-card-subtitle> -->
-                    <img style="border-radius: 5px; height: 150px; width: 100px;" sizes="100px" mat-card-image src="{{product.productImage}}"
-                    alt="product Photo">
+                    <img style="border-radius: 5px; height: 150px; width: 100px;" sizes="100px" mat-card-image
+                        src="{{product.productImage}}" alt="product Photo">
                 </mat-card-title-group>
                 <mat-card-content>
                     <!-- <h4>Description: {{ cartItem.cartItemDescription }}</h4> -->
@@ -32,12 +32,13 @@
         </div>
     </div>
 
-      <ng-container *ngIf="!currentCart">
+    <ng-container *ngIf="!currentCart">
         <div class="container">
             <div class="card">
             </div>
             <div class="center">
-                <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90" alt="img not f">
+                <img src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+                    alt="img not f">
                 <h1>Your cart is empty!</h1>
                 <h5>Add item to it now</h5>
                 <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary">Shop Now</button>
@@ -47,11 +48,12 @@
 
 
     <div>
-        <!-- <mat-card class="cart-details">
+        <mat-card class="cart-details">
             <h3 align="center">Total Amount: <b> ₹ {{currentCart.totalAmount}}</b></h3>
             <button mat-raised-button color="primary" (click)="openDialog()">Proceed To Payment</button>
-        </mat-card> -->
-        <button class="btn btn-danger btn-lg  centerBtn"  (click)="removeAllFromCart(currentCart.cartId)" >Clear Cart</button>
+        </mat-card>
+        <button class="btn btn-danger btn-lg  centerBtn" (click)="removeAllFromCart(currentCart.cartId)">Clear
+            Cart</button>
     </div>
 </div>
 
