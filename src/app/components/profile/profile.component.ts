@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Customer } from 'src/app/entities/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { UpdateCustomerComponent } from '../update-customer/update-customer.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
   customer: Customer = new Customer();
   email: any = localStorage.getItem("customerEmailId");
 
-  constructor(private customerService: CustomerService, private dialog: MatDialog) { }
+  constructor(private customerService: CustomerService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.getCustomerData();
@@ -35,7 +36,7 @@ export class ProfileComponent implements OnInit {
 
 
   showOrders() {
-
+    this.router.navigate(['/past-orders']);
   }
 
 

@@ -9,6 +9,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
+import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 
 
 const routes: Routes = [
@@ -22,10 +23,10 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'cart', component: CartComponent },
   { path: 'signup', component: SignUpComponent },
-
+  { path: 'past-orders', component: PastOrdersComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

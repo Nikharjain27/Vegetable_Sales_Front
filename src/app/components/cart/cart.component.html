@@ -50,9 +50,11 @@
     <div>
         <mat-card class="cart-details">
             <h3 align="center">Total Amount: <b> ₹ {{currentCart.totalAmount}}</b></h3>
-            <button mat-raised-button color="primary" (click)="openDialog()">Proceed To Payment</button>
+            <button [disabled]="currentCart.totalAmount===0" mat-raised-button color="primary"
+                (click)="openDialog()">Proceed To Payment</button>
         </mat-card>
-        <button class="btn btn-danger btn-lg  centerBtn" (click)="removeAllFromCart(currentCart.cartId)">Clear
+        <button [disabled]="currentCart.cartItems.length===0" class="btn btn-danger btn-lg  centerBtn"
+            (click)="removeAllFromCart(currentCart.cartId)">Clear
             Cart</button>
     </div>
 </div>

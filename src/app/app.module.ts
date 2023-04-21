@@ -37,6 +37,8 @@ import { UpdateCustomerComponent } from './components/update-customer/update-cus
 import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { PastOrdersComponent } from './components/past-orders/past-orders.component';
+import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     SearchProductPipe,
     CURDproductComponent,
     AddproductComponent,
+    PastOrdersComponent,
+    PastCartItemsComponent,
   ],
   imports: [
     MatProgressSpinnerModule,

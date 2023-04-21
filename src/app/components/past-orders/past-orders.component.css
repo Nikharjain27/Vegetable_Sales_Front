@@ -1,0 +1,15 @@
+th {
+    height: 50px;
+    vertical-align: middle;
+    background-color: gold;
+}
+
+td {
+    height: 50px;
+    vertical-align: middle;
+}
+
+td button {
+    height: 40px;
+    width: 40px;
+}

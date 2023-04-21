@@ -1,0 +1,22 @@
+<h3 mat-dialog-title>Ordered Items</h3>
+
+<mat-dialog-content>
+    <div class="container text-center">
+        <table class="table table-bordered">
+            <thead>
+                <th>Item No.</th>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Product Quantity</th>
+            </thead>
+            <tbody *ngFor="let cartItem of cartItems; let i = index">
+                <td>{{i+1}}</td>
+                <td><img src="{{cartItem.cartItemImage}}" alt="productImage" height="100px"></td>
+                <td>{{cartItem.cartItemName}}</td>
+                <td><span>&#x20B9;</span>{{cartItem.cartItemPrice}}</td>
+                <td>{{cartItem.cartItemQuantity}}</td>
+            </tbody>
+        </table>
+    </div>
+</mat-dialog-content>
