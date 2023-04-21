@@ -14,8 +14,7 @@ export class NavbarComponent implements OnInit {
   constructor(private router: Router,private customerService: CustomerService){}
 
   navigate(){
-    this.router.navigate(['/product'])
-    if(this.loggedIn){
+    if(this.isLoggedIn()==true){
       this.router.navigate(['/profile']);
     }
     else{
@@ -24,6 +23,15 @@ export class NavbarComponent implements OnInit {
   }
   
   ngOnInit(): void {
+  }
+
+  isLoggedIn() {
+    let tokenStr = localStorage.getItem('authenticationToken');
+    if (tokenStr == undefined || tokenStr == '' || tokenStr == null) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }
