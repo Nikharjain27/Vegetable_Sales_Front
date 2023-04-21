@@ -1,42 +1,47 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/home']">
-      <img class="logo" src="../../assets/img/logo.png">
+      <img class="logo" src="../../assets/img/logo.png" />
       <!-- <h5 class="nav-name">VegeFoods</h5> -->
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav m-auto"*ngIf="loggedIn">
+        <li class="nav-item" style="margin-left: -500px">
+          <a
+            [routerLink]="['/product-list-for-customer']"
+            class="nav-link"
+            href=".#"
+          >
+            Vegetables/Fruits
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/cart']" class="nav-link" href=".#"> Cart </a>
+        </li>
 
-      <ul class="navbar-nav  m-auto">
+        <li class="nav-item">
+          <a [routerLink]="['/aboutus']" class="nav-link" href=".#">
+            About Us
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/contactus']" class="nav-link" href=".#">
+            Contact Us
+          </a>
+        </li>
 
-        <ul class="navbar-nav m-auto">
-
-          <!-- <li class="nav-item ">
-            <a [routerLink]="['/home']" class="nav-link" href=".#">
-              Home
-            </a>
-
-          </li> -->
-          <li class="nav-item ">
-            <a [routerLink]="['/product-list-for-customer']" class="nav-link" href=".#">
-              Vegetables
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a [routerLink]="['/aboutus']" class="nav-link" href=".#">
-              About Us
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a [routerLink]="['/contactus']" class="nav-link" href=".#">
-              Contact Us
-            </a>
-          </li>
-
-          <!-- <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Pages
             </a>
@@ -48,24 +53,44 @@
             </ul>
           </li> -->
 
-          <!-- <li class="nav-item ">
+        <!-- <li class="nav-item ">
             <a [routerLink]="['/login']" class="nav-link" href=".#">
               LogIn/SignUp
             </a>
 
           </li> -->
-        </ul>
       </ul>
-
+      <ul class="navbar-nav m-auto"*ngIf="!loggedIn">
+        <li class="nav-item" style="margin-left: -500px">
+          <a
+            [routerLink]="['/product-list-for-customer']"
+            class="nav-link"
+            href=".#"
+          >
+            Vegetables/Fruits
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/aboutus']" class="nav-link" href=".#">
+            About Us
+          </a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/contactus']" class="nav-link" href=".#">
+            Contact Us
+          </a>
+        </li>
+      </ul>
       <form class="d-flex">
-        <!-- <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn-search-icon rounded-circle"><i class="bi bi-search"></i></button> -->
-          <!-- <a *ngIf="!loggedIn" [routerLink]="['/login']"><img src="https://www.kindpng.com/picc/m/235-2351000_login-icon-png-transparent-png.png" height="40px"/></a> -->
-          <a (click)="navigate()"><img src="https://www.kindpng.com/picc/m/235-2351000_login-icon-png-transparent-png.png" height="40px"/></a>
-         </form>
+        <a (click)="navigate()" style="cursor: pointer"
+          ><img
+            src="https://www.kindpng.com/picc/m/235-2351000_login-icon-png-transparent-png.png"
+            height="40px"
+        /></a>
+      </form>
     </div>
   </div>
 </nav>
 <router-outlet></router-outlet>
-<br>
-<br>
+<br />
+<br />

@@ -1,4 +1,5 @@
-<section
+<div *ngIf="!isLoading">
+  <section
   class="vh-100"
   class="shadow p-3 mb-5 bg-white rounded"
   style="
@@ -12,32 +13,34 @@
     margin-bottom: 50px;
   "
 >
-  <div class="container p-2">
-    <div class="row d-flex align-items-center justify-content-center h-100">
-      <div class="col-md-5 col-lg-5 col-xl-5">
-        <img
-          src="https://www.naxeed.com/themes/default/images/login-img.png"
-          class="img-fluid"
-          alt="Phone image"
-          style="height: 300px; width: 300;"
-        />
-      </div>
-      <div class="col-md-7 col -lg-5 col-xl-5 offset-xl-1">
-        <div
-          class="text-center container gradient-custom"
-          style="
+<div class="container p-2">
+  <div class="row d-flex align-items-center justify-content-center h-100">
+    <div class="col-md-5 col-lg-5 col-xl-5">
+      <img
+      src="https://www.naxeed.com/themes/default/images/login-img.png"
+      class="img-fluid"
+      alt="Phone image"
+      style="height: 300px; width: 300;"
+      />
+    </div>
+    <div class="col-md-7 col -lg-5 col-xl-5 offset-xl-1">
+      <div
+      class="text-center container gradient-custom"
+      style="
             max-width: 400px;
             background-color: #f8f9fa;
             border-radius: 25px;
             border: 1px solid #050503;
           "
         >
-          <br />
-          <img
+        <div class="alert alert-danger mt-2 mb-2" *ngIf="error">
+          {{error}}
+        </div>
+        <img
             src="../../../assets/img/signup.png"
             alt="signup.png"
             height="100px"
-          />
+            />
           <form class="g-3" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
             <div class="col-12 mt-3">
               <span
@@ -138,3 +141,7 @@
     </div>
   </div>
 </section>
+</div>
+<div *ngIf="isLoading">
+  <app-loadingspinner></app-loadingspinner>
+</div>

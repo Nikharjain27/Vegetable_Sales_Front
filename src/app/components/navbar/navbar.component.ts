@@ -9,13 +9,12 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class NavbarComponent implements OnInit {
 
-  loggedIn:boolean;
+  loggedIn = localStorage.getItem('authenticationToken');
 
   constructor(private router: Router,private customerService: CustomerService){}
 
   navigate(){
     this.router.navigate(['/product'])
-    this.loggedIn = this.customerService.isLoggedIn();
     if(this.loggedIn){
       this.router.navigate(['/profile']);
     }
@@ -23,7 +22,7 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/login']);
     }
   }
-
+  
   ngOnInit(): void {
   }
 

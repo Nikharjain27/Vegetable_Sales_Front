@@ -35,7 +35,7 @@ export class ProductsComponent implements OnInit {
   addToCart(product : Product){
     this.cartService.addToCart(1,product.productId).subscribe({
       next: () => {
-        alert("Added to cart");
+        // alert("Added to cart");
       },
       error: () => {
         alert("Error adding product")

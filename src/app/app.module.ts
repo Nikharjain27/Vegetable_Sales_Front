@@ -42,6 +42,7 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
+import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
     PastOrdersComponent,
     AboutusComponent,
     ContactusComponent,
+    LoadingspinnerComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
