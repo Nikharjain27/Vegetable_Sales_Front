@@ -1,11 +1,8 @@
-import { Component, OnInit, Inject} from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/entities/product';
 import { ProductService } from 'src/app/services/product.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatFormFieldControl } from '@angular/material/form-field';
-
 
 @Component({
   selector: 'app-addproduct',
@@ -14,42 +11,37 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 })
 export class AddproductComponent implements OnInit {
 
+
   product: Product = new Product();
   angForm: FormGroup;
+  submitted = false;
 
   constructor(private productService:ProductService,
     private router: Router,
-    @Inject(MAT_DIALOG_DATA) public updateData: any,
     private fb: FormBuilder
     ) { 
       this.validateForm();
     }
 
   ngOnInit(): void {
-    this.product = this.updateData.product;
-    console.log(this.updateData);
+  }
+
+  newProduct(){
+    this.submitted = false;
+    this.product = new Product();
   }
 
   AddNewProduct(){
-    if(!this.product){
-      this.productService.addProduct(this.product).subscribe({
-        next: (data) => {
-          alert("Product added successfully")
-          this.goToCURDProductList();
-        },
-        error: (error)=> console.log(error)
-      })
-    }
-    if(this.product){
-      this.productService.updateProduct(this.product).subscribe({
-        next: (data)=> {
-          alert("Product updated successfully");
-          this.goToCURDProductList();
-        },
-        error: (error) => console.log(error)
-      })
-    }
+    this.productService.addProduct(this.product).subscribe({
+      next:(data)=>{
+        alert("Vegetable added successfully")
+        this.goToCURDProductList();
+      },
+      error: (error) => console.log(error)
+    })
   }
+
+
   goToCURDProductList() {
     this.router.navigate(['/admin-product-list']);
   }

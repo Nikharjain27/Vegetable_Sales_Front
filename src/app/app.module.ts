@@ -33,10 +33,10 @@ import { MatTabsModule } from "@angular/material/tabs";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
-
-import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
+import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
+import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +53,9 @@ import { AddproductComponent } from './components/addproduct/addproduct.componen
     OrderComponent,
     UpdateCustomerComponent,
     SearchProductPipe,
-    CURDproductComponent,
     AddproductComponent,
+    UpdateproductComponent,
+    ProductListForAdminComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
