@@ -1,10 +1,9 @@
 import { Component, OnInit, Inject} from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-
+import { Product } from 'src/app/entities/product';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatFormFieldControl } from '@angular/material/form-field';
-import { Product } from 'src/app/entities/product';
 import { ProductService } from 'src/app/services/product.service';
 
 
@@ -32,7 +31,7 @@ export class AddproductComponent implements OnInit {
   }
 
   AddNewProduct(){
-    if(!this.product){
+    if(this.product.productName.length==0){
       this.productService.addProduct(this.product).subscribe({
         next: (data) => {
           alert("Product added successfully")
@@ -41,7 +40,7 @@ export class AddproductComponent implements OnInit {
         error: (error)=> console.log(error)
       })
     }
-    if(this.product){
+    else{
       this.productService.updateProduct(this.product).subscribe({
         next: (data)=> {
           alert("Product updated successfully");

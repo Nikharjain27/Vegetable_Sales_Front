@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Customer } from 'src/app/entities/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 import { UpdateCustomerComponent } from '../update-customer/update-customer.component';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -52,4 +52,8 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/home']);
+  }
 }

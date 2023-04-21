@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <th>Billing Date</th>
-          <td>{{order.billingDate}}</td>
+          <td>{{order.billingDate | date}}</td>
           <td *ngIf="order.billingDate === null">-------------------------</td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
       </table>
       <br />
       <h1>Cart Items</h1>
-      <table class="table table-bordered" *ngFor="let cartItem of cartItems; let i = index"
+      <table class="table table-bordered"
         style="background-color: white;border-radius: 10px;max-width: 500px;margin: auto;">
         <thead>
           <th>Cart No.</th>
@@ -50,7 +50,7 @@
           <th>Product Price</th>
           <th>Product Quantity</th>
         </thead>
-        <tbody>
+        <tbody *ngFor="let cartItem of cartItems; let i = index">
           <td>{{i+1}}</td>
           <td><img src="{{cartItem.cartItemImage}}" alt="productImage" height="100px"></td>
           <td>{{cartItem.cartItemName}}</td>
@@ -58,6 +58,12 @@
           <td>{{cartItem.cartItemQuantity}}</td>
         </tbody>
       </table>
+      <div class="mt-2">
+        <button class="btn btn-warning" (click)="printThePage()">Print Order Reciept</button>
+      </div>
+      <div class="mt-2">
+        <button class="btn btn-success" [routerLink]="['/home']">Home</button>
+      </div>
     </div>
   </div>
   <div class="text-center mt-3" *ngIf="order === null">

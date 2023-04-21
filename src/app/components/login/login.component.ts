@@ -13,6 +13,7 @@ import { CustomerService } from 'src/app/services/customer.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   isLoading: boolean = false;
+  error : string | null;
   authenticationToken: any;
   constructor(
     private httpClient: HttpClient,
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (responseData) => {
           this.isLoading = false;
-          console.log(responseData);
+          // console.log(responseData);
           this.authenticationToken = responseData;
           localStorage.setItem(
             'authenticationToken',
@@ -81,7 +82,8 @@ export class LoginComponent implements OnInit {
         },
         (error) => {
           this.isLoading = false;
-          console.log(error.error);
+          // console.log(error.error);
+          this.error = error.error;
         }
       );
   }

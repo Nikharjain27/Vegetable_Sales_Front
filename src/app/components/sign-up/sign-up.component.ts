@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
   signupForm : FormGroup = new FormGroup({});
   authenticationToken: any;
+  isLoading: boolean = false;
+  error: string = 'asdfjk';
 
   constructor(private httpClient: HttpClient,private router: Router) {}
 
@@ -26,6 +28,7 @@ export class SignUpComponent implements OnInit {
  
   onSubmit() {
     // console.log(this.signupForm.value);
+    this.isLoading = true;
     this.httpClient
       .post('http://localhost:9091/customer-section/customer-registration', this.signupForm.value, {
         headers: new HttpHeaders({
@@ -33,7 +36,8 @@ export class SignUpComponent implements OnInit {
         }),
       })
       .subscribe((responseData) => {
-        console.log(responseData);
+        // console.log(responseData);
+        this.isLoading = false;
         this.authenticationToken = responseData;
         localStorage.setItem("authenticationToken",this.authenticationToken.token);
         let time = new Date().getTime();
@@ -42,7 +46,9 @@ export class SignUpComponent implements OnInit {
         localStorage.setItem("customerEmailId",this.signupForm.value.customerEmail);
         this.router.navigate(['/home']);
       },error =>{
-        console.log(error.error);
+        // console.log(error.error);
+        this.error = error.error;
+        this.isLoading = false;
       });
   }
 

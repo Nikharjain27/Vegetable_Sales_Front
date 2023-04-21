@@ -40,5 +40,8 @@ export class OrderComponent implements OnInit {
         }
       );
   }
+  printThePage(){
+    window.print();
+  }
 
 }
