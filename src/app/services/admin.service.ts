@@ -6,13 +6,12 @@ import { Product } from '../entities/product';
 import { Order } from '../entities/order';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminService {
+  private baseURL = 'http://localhost:9091/admin-section';
 
-  private baseURL = "http://localhost:9091/admin-section";
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   getAllCustomers(): Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(`${this.baseURL}/view/customers`);
@@ -22,19 +21,26 @@ export class AdminService {
     return this.httpClient.get<Product[]>(`${this.baseURL}/view/products`);
   }
 
-  getAllOders(): Observable<Order[]>{
-    return this.httpClient.get<Order[]>(`${this.baseURL}/view/orders`)
+  getAllOders(): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(`${this.baseURL}/view/orders`);
   }
 
-  deleteCustomer(customerId: number): Observable<Customer[]>{
-    return this.httpClient.delete<Customer[]>(`${this.baseURL}/delete/customer/${customerId}`);
+  deleteCustomer(customerId: number): Observable<Customer[]> {
+    return this.httpClient.delete<Customer[]>(
+      `${this.baseURL}/delete/customer/${customerId}`
+    );
   }
 
-  deleteProduct(productId: number): Observable<Product[]>{
-    return this.httpClient.delete<Product[]>(`${this.baseURL}/delete/products/${productId}`);
+  deleteProduct(productId: number): Observable<Product[]> {
+    return this.httpClient.delete<Product[]>(
+      `${this.baseURL}/delete/products/${productId}`
+    );
   }
 
-  updateCustomer(customerId: number,customer: Customer): Observable<Customer>{
-    return this.httpClient.put<Customer>(`${this.baseURL}/update/customers/${customerId}` ,customer);
+  updateCustomer(customer: Customer): Observable<Customer> {
+    return this.httpClient.put<Customer>(
+      `${this.baseURL}/update/customers/`,
+      customer
+    );
   }
 }

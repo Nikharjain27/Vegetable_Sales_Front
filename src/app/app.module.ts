@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {MatListModule} from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,28 +18,28 @@ import { AdminComponent } from './components/admin/admin.component';
 import { CustomerService } from './services/customer.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
-import { MatIconModule} from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatIconModule } from '@angular/material/icon';
 import { EditComponent } from './components/edit/edit.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 import { DeleteComponent } from './components/delete/delete.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { MatToolbarModule } from "@angular/material/toolbar";
-import { MatCardModule } from "@angular/material/card";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatCardModule } from '@angular/material/card';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchProductPipe } from './components/search/search-product.pipe';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCommonModule } from '@angular/material/core';
-import { MatTabsModule } from "@angular/material/tabs";
-import { MatPaginatorModule } from "@angular/material/paginator";
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { UpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
 import { UpdateProductComponent } from './components/admin/update-product/update-product.component';
 import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
@@ -103,10 +103,7 @@ import { UpdateOrderComponent } from './components/admin/update-order/update-ord
     MatTableModule,
     MatListModule,
   ],
-  providers: [
-    ProductService,
-    CustomerService,
-  ],
-  bootstrap: [AppComponent]
+  providers: [ProductService, CustomerService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,8 +1,13 @@
 <div class="bootstrap-wrapper">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2 mt-5">
-        <mat-card style="background-color: #f6f1f1">
+      <div class="col-md-12 mt-4">
+        <mat-card style="background-color: #f9f9f9">
+          <h1>Admin Dashboard</h1>
+        </mat-card>
+      </div>
+      <div class="col-md-2 mt-3">
+        <mat-card style="background-color: #f9f9f9">
           <mat-action-list>
             <div mat-subheader>Menu</div>
             <button routerLink="/admin/customers" mat-list-item>
@@ -21,7 +26,7 @@
         </mat-card>
       </div>
 
-      <div class="col-md-9 mt-5">
+      <div class="col-md-10 mt-3">
         <router-outlet></router-outlet>
       </div>
     </div>
