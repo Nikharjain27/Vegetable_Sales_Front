@@ -46,13 +46,13 @@
           <b><i>Total Amount : </i> {{ currentCart.totalAmount | currency: 'INR'}}</b>
         </h3>
         <div style="display: flex;">
-          <button [disabled]="currentCart.cartItems.length === 0" class="btn btn-danger btn-md btn-block"
+          <button [disabled]="currentCart.cartItems.length === 0" class="btn btn-danger btn-md btn-block orderbutton-3"
             (click)="removeAllFromCart(currentCart.cartId)">
             <i class="bi bi-trash"> Clear Cart</i>
           </button>
           <button [disabled]="currentCart.totalAmount === 0" style="margin-left: 1000px;"
-            class="btn btn-success btn-md btn-block " (click)="openDialog()">
-            <i class="bi bi-credit-card-2-back-fill"> Make Payment</i>
+            class="btn btn-success btn-md btn-block orderbutton-3 " (click)="openDialog()">
+            <i class="bi bi-credit-card-2-back-fill "> Make Payment</i>
           </button>
         </div>
       </mat-card>
@@ -65,11 +65,10 @@
   <div class="container shadow p-1  bg-body rounded">
     <div class="card"></div>
     <div class="center">
-      <img src="https://cdni.iconscout.com/illustration/free/thumb/free-empty-cart-4085814-3385483.png" width="120" height="200" class="img-fluid mb-4 mr-3"
-        style="text-align: center;">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png?f=webp">
       <h1>Your cart is Empty!</h1>
       <h5>Add something to make me happy :)</h5>
-      <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary">
+      <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary orderbutton-3">
         Order Now
       </button>
     </div>
