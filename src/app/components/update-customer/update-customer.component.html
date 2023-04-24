@@ -11,7 +11,7 @@
 
         <mat-form-field appearance="outline" class="form-group" style="width: 100%;">
             <mat-label>Customer Email</mat-label>
-            <input type="text" id="customerEmail" matInput placeholder="abcd@gmail.com"
+            <input type="text" id="customerEmail" matInput placeholder="abcd@gmail.com" [disabled]="true"
                 [(ngModel)]="customer.customerEmail" name="customerEmail" required #customerEmailField="ngModel">
             <mat-error *ngIf="customerEmailField.invalid || customerEmailField.untouched">Enter valid customer
                 email</mat-error>

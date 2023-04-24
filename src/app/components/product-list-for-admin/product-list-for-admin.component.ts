@@ -5,13 +5,14 @@ import { AddproductComponent } from '../addproduct/addproduct.component';
 import { Router } from '@angular/router';
 import { Product } from 'src/app/entities/product';
 import { ProductService } from 'src/app/services/product.service';
+import { UpdateproductComponent } from '../updateproduct/updateproduct.component';
 
 @Component({
-  selector: 'app-curdproduct',
-  templateUrl: './curdproduct.component.html',
-  styleUrls: ['./curdproduct.component.css']
+  selector: 'app-product-list-for-admin',
+  templateUrl: './product-list-for-admin.component.html',
+  styleUrls: ['./product-list-for-admin.component.css']
 })
-export class CURDproductComponent implements OnInit {
+export class ProductListForAdminComponent implements OnInit {
 
   products: Product[] = [];
   searchText = '';
@@ -48,7 +49,7 @@ export class CURDproductComponent implements OnInit {
   }
 
   updateProductDialog(product: Product){
-    this.dialog.open(AddproductComponent,{
+    this.dialog.open(UpdateproductComponent,{
       width: "40%",
       data:{
         product:product
@@ -73,4 +74,5 @@ export class CURDproductComponent implements OnInit {
   goToCURDProductList(){
     this.router.navigate(['/admin-product-list']);
   }
+
 }

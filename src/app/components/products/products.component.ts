@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { Product } from 'src/app/entities/product';
 import { ProductService } from 'src/app/services/product.service';
 import { MatTableDataSource } from '@angular/material/table';
-import { CartComponent } from '../cart/cart.component';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -17,7 +16,7 @@ export class ProductsComponent implements OnInit {
 
   searchText = '';
   dataSource = new MatTableDataSource();
-
+  cartId = localStorage.getItem('customerCartId');
 
   constructor(private prodService: ProductService, private router: Router , private cartService : CartService) { }
 
@@ -28,14 +27,14 @@ export class ProductsComponent implements OnInit {
   private getAllProducts(){
     this.prodService.getAllProducts().subscribe(data=>{
       this.products = data;
-      console.log(data);
+      // console.log(data);
     })
   }
 
   addToCart(product : Product){
-    this.cartService.addToCart(1,product.productId).subscribe({
+    this.cartService.addToCart(this.cartId,product.productId).subscribe({
       next: () => {
-        // alert("Added to cart");
+        alert("Added to cart");
       },
       error: () => {
         alert("Error adding product")

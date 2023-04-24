@@ -9,33 +9,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav m-auto" *ngIf="loggedIn">
+      <ul class="navbar-nav m-auto">
         <li class="nav-item" style="margin-left: -500px">
           <a [routerLink]="['/product-list-for-customer']" class="nav-link">
             Vegetables/Fruits
           </a>
         </li>
-        <li class="nav-item">
-          <a [routerLink]="['/cart']" class="nav-link"> Cart </a>
+        <li class="nav-item" *ngIf="isLoggedIn()==true">
+          <a [routerLink]="['/cart']" class="nav-link" href=".#"> Cart </a>
         </li>
 
-        <li class="nav-item">
-          <a [routerLink]="['/aboutus']" class="nav-link">
-            About Us
-          </a>
-        </li>
-        <li class="nav-item">
-          <a [routerLink]="['/contactus']" class="nav-link">
-            Contact Us
-          </a>
-        </li>
-      </ul>
-      <ul class="navbar-nav m-auto" *ngIf="!loggedIn">
-        <li class="nav-item" style="margin-left: -500px">
-          <a [routerLink]="['/product-list-for-customer']" class="nav-link">
-            Vegetables/Fruits
-          </a>
-        </li>
         <li class="nav-item">
           <a [routerLink]="['/aboutus']" class="nav-link">
             About Us

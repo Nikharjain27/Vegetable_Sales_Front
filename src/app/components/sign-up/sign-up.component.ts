@@ -12,7 +12,7 @@ export class SignUpComponent implements OnInit {
   signupForm : FormGroup = new FormGroup({});
   authenticationToken: any;
   isLoading: boolean = false;
-  error: string = 'asdfjk';
+  error: string = '';
 
   constructor(private httpClient: HttpClient,private router: Router) {}
 

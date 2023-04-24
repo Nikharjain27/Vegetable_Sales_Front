@@ -23,9 +23,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchProductPipe } from './components/search/search-product.pipe';
-
 import { MatDividerModule } from '@angular/material/divider';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatInputModule } from '@angular/material/input';
@@ -35,16 +33,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
-
-import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
-import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
-
+import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
+import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
 
 @NgModule({
   declarations: [
@@ -61,13 +57,14 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
     OrderComponent,
     UpdateCustomerComponent,
     SearchProductPipe,
-    CURDproductComponent,
     AddproductComponent,
     PastOrdersComponent,
     PastCartItemsComponent,
     AboutusComponent,
     ContactusComponent,
     LoadingspinnerComponent,
+    UpdateproductComponent,
+    ProductListForAdminComponent,
   ],
   imports: [
     MatProgressSpinnerModule,

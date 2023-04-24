@@ -1,14 +1,13 @@
 <h1 style="margin-top: 15px; margin-left: 90px"><b>My cart</b></h1>
 
-
 <div class="container">
-  <div *ngIf="currentCart" class="row">
-    <div class="list-cart-item col-sm-4 " *ngFor="let cartItem of currentCart.cartItems; let i = index"
+  <div *ngIf="cartPresent() == true" class="row">
+    <div class="list-cart-item col-md-3 col-sm-4" *ngFor="let cartItem of currentCart.cartItems; let i = index"
       [class.active]="i == currentIndex" (click)="setActiveCartItem(cartItem, i)">
-      <mat-card class="mat-card" style="width: 200px;">
+      <mat-card class="mat-card" style="width: 70%;margin: auto;">
         <mat-card-title-group>
           <mat-card-title>
-            {{cartItem.cartItemName}}
+            {{ cartItem.cartItemName }}
           </mat-card-title>
         </mat-card-title-group>
         <mat-card-title-group>
@@ -43,18 +42,26 @@
 
     <div>
       <mat-card class="cart-details">
-        <h3 align="center">Total Amount: <b> ₹ {{currentCart.totalAmount}}</b></h3>
-        <button [disabled]="currentCart.totalAmount===0" mat-raised-button color="primary"
-          (click)="openDialog()">Proceed To Payment</button>
+        <h3 align="center">
+          Total Amount: <b> ₹ {{ currentCart.totalAmount }}</b>
+        </h3>
+        <div style="display: flex;">
+          <button [disabled]="currentCart.cartItems.length === 0" class="btn btn-danger btn-md btn-block"
+            (click)="removeAllFromCart(currentCart.cartId)">
+            Clear Cart
+          </button>
+          <button [disabled]="currentCart.totalAmount === 0" style="margin-left: 1000px;"
+            class="btn btn-success btn-md btn-block" (click)="openDialog()">
+            Proceed To Payment
+          </button>
+        </div>
       </mat-card>
-      <button [disabled]="currentCart.cartItems.length===0" class="btn btn-danger btn-lg  centerBtn"
-        (click)="removeAllFromCart(currentCart.cartId)">Clear
-        Cart</button>
+      <br /><br />
     </div>
   </div>
 </div>
 
-<ng-container *ngIf="!currentCart">
+<ng-container *ngIf="cartPresent() == false">
   <div class="container">
     <div class="card"></div>
     <div class="center">
@@ -64,7 +71,7 @@
       <h1>Your cart is empty!</h1>
       <h5>Add item to it now</h5>
       <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary">
-        Shop Now
+        Order Now
       </button>
     </div>
   </div>

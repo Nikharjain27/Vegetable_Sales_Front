@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aboutus',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutusComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
+    if(tokenExpirationTime){
+      const nowTime = new Date().getTime();
+      if(nowTime-(+tokenExpirationTime) > 0){
+        alert("Session Expired. Please Login Again...");
+        this.router.navigate(['/login']);
+      }
+    }
   }
 
 }

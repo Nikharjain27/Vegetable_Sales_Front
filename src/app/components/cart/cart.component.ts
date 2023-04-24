@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CartItem } from 'src/app/entities/cart-item';
+import { PaymentComponent } from '../payment/payment.component';
 import { Cart } from 'src/app/entities/cart';
 import { CartService } from 'src/app/services/cart.service';
-import { PaymentComponent } from '../payment/payment.component';
 
 
 @Component({
@@ -28,7 +27,15 @@ export class CartComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.getCart(this.route.snapshot.paramMap.get("cartId"));
+    this.getCart(localStorage.getItem("customerCartId"));
+    const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
+    if(tokenExpirationTime){
+      const nowTime = new Date().getTime();
+      if(nowTime-(+tokenExpirationTime) > 0){
+        alert("Session Expired. Please Login Again...");
+        this.router.navigate(['/login']);
+      }
+    }
   }
 
   getCart(cartId: any): void {
@@ -100,6 +107,13 @@ export class CartComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       console.log("Dialog Closed");
     });
+  }
+
+  cartPresent(){
+    if(this.currentCart.cartItems.length == 0){
+      return false;
+    }
+    else return true;
   }
 
 }
