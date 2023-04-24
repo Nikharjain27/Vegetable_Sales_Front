@@ -10,6 +10,7 @@
     </thead>
     <tbody *ngFor="let order of orders">
       <td>{{ order.orderId }}</td>
+      <td>{{order.billingDate | date}}</td>
       <td>{{ order.billingAmount | currency : "INR" }}</td>
       <td>{{ order.billingAddress }}</td>
       <td>{{ order.payment.paymentType }}</td>

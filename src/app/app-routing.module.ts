@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'aboutus', component: AboutusComponent},
-  { path: 'contactus', component: ContactusComponent}
+  { path: 'contactus', component: ContactusComponent},
   { path: 'past-orders', component: PastOrdersComponent },
 ];
 @NgModule({
