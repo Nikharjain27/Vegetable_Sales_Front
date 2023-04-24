@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { CartItem } from 'src/app/entities/cart-item';
+import { PaymentComponent } from '../payment/payment.component';
 import { Cart } from 'src/app/entities/cart';
 import { CartService } from 'src/app/services/cart.service';
-import { PaymentComponent } from '../payment/payment.component';
 
 
 @Component({

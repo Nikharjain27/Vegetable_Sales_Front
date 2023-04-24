@@ -35,15 +35,14 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
-
-import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
-import { MatPaginator } from '@angular/material/paginator';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
 
+import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
+import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
 
 @NgModule({
   declarations: [
@@ -60,12 +59,13 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
     OrderComponent,
     UpdateCustomerComponent,
     SearchProductPipe,
-    CURDproductComponent,
     AddproductComponent,
     PastOrdersComponent,
     AboutusComponent,
     ContactusComponent,
     LoadingspinnerComponent,
+    UpdateproductComponent,
+    ProductListForAdminComponent,
   ],
   imports: [
     MatProgressSpinnerModule,

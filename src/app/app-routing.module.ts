@@ -8,15 +8,16 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { CURDproductComponent } from './components/crudproduct/curdproduct.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
+import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
+
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'product-list-for-customer', component: ProductsComponent },
-  { path: 'admin-product-list', component: CURDproductComponent },
+  { path: 'admin-product-list', component: ProductListForAdminComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'order', component: OrderComponent },
