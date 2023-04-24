@@ -44,6 +44,7 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
 import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { PastCartItemsComponent } from './components/past-cart-items/past-cart-i
     UpdateproductComponent,
     ProductListForAdminComponent,
     PastCartItemsComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     MatProgressSpinnerModule,

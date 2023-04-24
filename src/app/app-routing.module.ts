@@ -12,6 +12,7 @@ import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent},
   { path: 'contactus', component: ContactusComponent},
   { path: 'past-orders', component: PastOrdersComponent },
+  { path:'**' ,component:PagenotfoundComponent},
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
