@@ -14,21 +14,28 @@ import { UpdateCustomerComponent } from './components/admin/update-customer/upda
 import { UpdateProductComponent } from './components/admin/update-product/update-product.component';
 import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/AppComponent', pathMatch: 'full' },
-  { path: 'product', component: ProductsComponent},
-  { path: 'home',  component: HomeComponent},
-  { path: 'login',  component: LoginComponent},
-  { path: 'order',  component: OrderComponent},
-  { path: 'profile',  component: ProfileComponent},
-  { path: 'payment',  component: PaymentComponent},
-  { path: 'cart',  component: CartComponent}, 
-  { path: 'admin',  component: AdminComponent , children:[{path: 'customers', component: UpdateCustomerComponent},{path: '', component: UpdateCustomerComponent},{path: 'products', component: UpdateProductComponent},{path: 'orders', component: UpdateOrderComponent}]}, 
-  {path: 'signup', component: SignUpComponent},
+  { path: 'product', component: ProductsComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'order', component: OrderComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'payment', component: PaymentComponent },
+  { path: 'cart', component: CartComponent },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    children: [
+      { path: 'customers', component: UpdateCustomerComponent },
+      { path: '', component: UpdateCustomerComponent },
+      { path: 'admin-product-list', component: CURDproductComponent },
+      { path: 'orders', component: UpdateOrderComponent },
+    ],
+  },
+  { path: 'signup', component: SignUpComponent },
   { path: 'product-list-for-customer', component: ProductsComponent },
   { path: 'admin-product-list', component: CURDproductComponent },
-
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
