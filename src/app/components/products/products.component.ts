@@ -4,6 +4,7 @@ import { Product } from 'src/app/entities/product';
 import { ProductService } from 'src/app/services/product.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { CartService } from 'src/app/services/cart.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-products',
@@ -14,11 +15,12 @@ export class ProductsComponent implements OnInit {
 
   products: Product[] = [];
 
+
   searchText = '';
   dataSource = new MatTableDataSource();
   cartId = localStorage.getItem('customerCartId');
 
-  constructor(private prodService: ProductService, private router: Router , private cartService : CartService) { }
+  constructor(private prodService: ProductService, private router: Router , private cartService : CartService, private customerService: CustomerService) { }
 
   ngOnInit(): void {
      this.getAllProducts();
@@ -32,6 +34,7 @@ export class ProductsComponent implements OnInit {
   }
 
   addToCart(product : Product){
+    if(this.customerService.isLoggedIn()){
     this.cartService.addToCart(this.cartId,product.productId).subscribe({
       next: () => {
         alert("Added to cart");
@@ -40,6 +43,7 @@ export class ProductsComponent implements OnInit {
         alert("Error adding product")
       }
     })
+  }
   }
 
   setProducts = (data: any) =>{
