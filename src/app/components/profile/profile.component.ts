@@ -19,6 +19,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCustomerData();
+    const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
+    if(tokenExpirationTime){
+      const nowTime = new Date().getTime();
+      if(nowTime-(+tokenExpirationTime) > 0){
+        alert("Session Expired. Please Login Again...");
+        this.router.navigate(['/login']);
+      }
+    }
   }
 
   private getCustomerData() {
