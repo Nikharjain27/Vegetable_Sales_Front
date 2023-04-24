@@ -2,9 +2,11 @@ img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+  height: 300px;
 }
 
 div{
   text-align: center;
-  text-shadow: 2px 2px 5px red;
+
+  font-size:70px;
 }
