@@ -11,13 +11,8 @@ import { EditComponent } from '../../edit/edit.component';
 })
 export class UpdateCustomerComponent implements OnInit {
   customers: Customer[];
-  customerToUpdate = {
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    pincode: '',
-  };
+
+  customerToUpdate: Customer = new Customer();
   constructor(private _admin: AdminService, private _dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -51,5 +46,21 @@ export class UpdateCustomerComponent implements OnInit {
         alert('Error while deleting customer');
       },
     });
+  }
+
+  updateCustomer(customer: Customer) {
+    return this._admin.updateCustomer(customer, customer.customerId).subscribe({
+      next: (res) => {
+        alert('Customer Updated Successfully');
+        this.getAllCustomers();
+      },
+      error: () => {
+        alert('Error While Updating Customer');
+      },
+    });
+  }
+
+  loadCustomerData(customer: Customer) {
+    this.customerToUpdate = customer;
   }
 }

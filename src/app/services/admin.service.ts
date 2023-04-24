@@ -37,9 +37,9 @@ export class AdminService {
     );
   }
 
-  updateCustomer(customer: Customer): Observable<Customer> {
+  updateCustomer(customer: Customer, customerId: number): Observable<Customer> {
     return this.httpClient.put<Customer>(
-      `${this.baseURL}/update/customers/`,
+      `${this.baseURL}/update/customers/${customerId}`,
       customer
     );
   }
