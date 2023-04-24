@@ -27,7 +27,7 @@ export class CartComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.getCart(this.route.snapshot.paramMap.get("cartId"));
+    this.getCart(localStorage.getItem("customerCartId"));
   }
 
   getCart(cartId: any): void {
@@ -99,6 +99,13 @@ export class CartComponent implements OnInit {
     dialogRef.afterClosed().subscribe(res => {
       console.log("Dialog Closed");
     });
+  }
+
+  cartPresent(){
+    if(this.currentCart.cartItems.length == 0){
+      return false;
+    }
+    else return true;
   }
 
 }

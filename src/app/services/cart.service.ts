@@ -22,7 +22,7 @@ export class CartService {
       }),
     });
   }
-  addToCart(cartId: number, productId: number): Observable<any> {
+  addToCart(cartId: any, productId: number): Observable<any> {
     return this.http.post(
       `${baseUrl}/add-to-cart/${cartId}/${productId}`,
       {
