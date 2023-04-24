@@ -1,20 +1,29 @@
-<!-- <div class="container text-center">
-    <table class="table table-hover">
-        <thead>
-            <th>Order Id</th>
-            <th>Billing Date</th>
-            <th>Billing Amount</th>
-            <th>Billing Address</th>
-            <th>Payment Type</th>
-            <th>Action</th>
-        </thead>
-        <tbody>
-            <td>{{order.orderId}}</td>
-            <td>{{order.billingDate}}</td>
-            <td>{{order.BillingAmount}}</td>
-            <td>{{order.billingAddress}}</td>
-            <td>{{order.payment.paymentType}}</td>
-            <td><button type="button">View Cart Items</button></td>
-        </tbody>
-    </table>
-</div> -->
+<div class="container text-center">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <th>Order Id</th>
+      <th>Billing Date</th>
+      <th>Billing Amount</th>
+      <th>Billing Address</th>
+      <th>Payment Type</th>
+      <th>Action</th>
+    </thead>
+    <tbody *ngFor="let order of orders">
+      <td>{{ order.orderId }}</td>
+      <td>{{ order.billingAmount | currency : "INR" }}</td>
+      <td>{{ order.billingAddress }}</td>
+      <td>{{ order.payment.paymentType }}</td>
+      <td>
+        <div>
+          <button
+            (click)="showPastCartItems(order.cartItems)"
+            mat-mini-fab
+            color="primary"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+      </td>
+    </tbody>
+  </table>
+</div>

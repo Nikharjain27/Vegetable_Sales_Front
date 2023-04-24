@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   customer: Customer = new Customer();
   email: any = localStorage.getItem("customerEmailId");
 
-  constructor(private customerService: CustomerService, private dialog: MatDialog,private router: Router) { }
+  constructor(private customerService: CustomerService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     this.getCustomerData();
@@ -36,7 +36,7 @@ export class ProfileComponent implements OnInit {
 
 
   showOrders() {
-
+    this.router.navigate(['/past-orders']);
   }
 
 

@@ -25,7 +25,6 @@ export class UpdateCustomerComponent implements OnInit {
 
   ngOnInit(): void {
     this.customer = this.customerData.customer;
-    console.log(this.customerData);
   }
 
   updateCustomer() {

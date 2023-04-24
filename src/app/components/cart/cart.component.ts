@@ -34,7 +34,8 @@ export class CartComponent implements OnInit {
     this.cartService.getCart(cartId).subscribe({
       next: (data) => {
         this.currentCart = data;
-        console.log(data);
+        this.currentCart.cartItems.sort((a, b) => a.cartItemId.toString().localeCompare(b.cartItemId.toString()));
+        console.log(this.currentCart);
       },
       error: (err) => {
         console.log(err);
@@ -46,7 +47,8 @@ export class CartComponent implements OnInit {
     this.cartService.increaseQuantity(cartId, cartItemId).subscribe({
       next: (data) => {
         this.currentCart = data;
-        console.log(data);
+        this.currentCart.cartItems.sort((a, b) => a.cartItemId.toString().localeCompare(b.cartItemId.toString()));
+        console.log(this.currentCart);
       },
       error: (err) => {
         console.log(err);
@@ -58,7 +60,8 @@ export class CartComponent implements OnInit {
     this.cartService.removeFromCart(cartId, cartItemId).subscribe({
       next: (data) => {
         this.currentCart = data;
-        console.log(data);
+        this.currentCart.cartItems.sort((a, b) => a.cartItemId.toString().localeCompare(b.cartItemId.toString()));
+        console.log(this.currentCart);
       },
       error: (err) => {
         console.log(err);

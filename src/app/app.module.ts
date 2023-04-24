@@ -43,6 +43,7 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
 
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
+import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { ProductListForAdminComponent } from './components/product-list-for-admi
     LoadingspinnerComponent,
     UpdateproductComponent,
     ProductListForAdminComponent,
+    PastCartItemsComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
