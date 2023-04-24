@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center" *ngIf="orders.length>0">
   <table class="table table-hover table-bordered">
     <thead>
       <th>Order Id</th>
@@ -27,4 +27,21 @@
       </td>
     </tbody>
   </table>
+</div>
+<div class="container" *ngIf="orders.length==0">
+  <div class="card"></div>
+  <div class="center">
+    <img
+      src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
+      alt="img not f"
+    />
+    <h1>No Orders to Show!</h1>
+    <h5>Order Now !!!</h5>
+    <button
+      [routerLink]="['/product-list-for-customer']"
+      class="btn btn-primary"
+    >
+      Order Now
+    </button>
+  </div>
 </div>

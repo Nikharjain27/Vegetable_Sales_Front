@@ -12,12 +12,7 @@ export class ProductService {
   token = localStorage.getItem('authenticationToken');
 
   getAllProducts(): Observable<any> {
-    return this.http.get(`${this.BASEURL}/products`, {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`,
-      }),
-    });
+    return this.http.get(`${this.BASEURL}/products`);
   }
 
   addProduct(product: Product): Observable<any> {
