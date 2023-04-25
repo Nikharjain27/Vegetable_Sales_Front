@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
 
   searchText = '';
   dataSource = new MatTableDataSource();
-  cartId = localStorage.getItem('customerCartId');
+  cartId:any;
 
   constructor(
     private prodService: ProductService,
@@ -24,6 +24,7 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.cartId = localStorage.getItem('customerCartId');
     this.getAllProducts();
     const tokenExpirationTime = localStorage.getItem('tokenExpirationTime');
     if (tokenExpirationTime) {

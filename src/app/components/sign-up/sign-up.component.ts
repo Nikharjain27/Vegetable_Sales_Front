@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,7 +15,7 @@ export class SignUpComponent implements OnInit {
   isLoading: boolean = false;
   error: string = '';
 
-  constructor(private httpClient: HttpClient,private router: Router) {}
+  constructor(private httpClient: HttpClient,private router: Router,private customerService: CustomerService) {}
 
   ngOnInit() {
     const token = localStorage.getItem("authenticationToken");
@@ -48,6 +49,20 @@ export class SignUpComponent implements OnInit {
         time += (1000*60*60);
         localStorage.setItem("tokenExpirationTime",time.toString());
         localStorage.setItem("customerEmailId",this.signupForm.value.customerEmail);
+        this.customerService
+            .getCustomerByEmail(this.signupForm.value.customerEmail)
+            .subscribe({
+              next:(responseData) => {
+                localStorage.setItem(
+                  'customerCartId',
+                  responseData.cart.cartId.toString()
+                );
+                console.log(responseData);
+              },
+              error:(error) => {
+                console.log(error);
+              }
+        });
         this.router.navigate(['/home']);
       },error =>{
         // console.log(error.error);
