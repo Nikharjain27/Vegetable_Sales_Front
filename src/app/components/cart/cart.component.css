@@ -1,38 +1,41 @@
-
-
 @media screen and (max-width:2000px) {
   .cart {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   .list-cart-item {
-      margin-bottom: 30px;
+    margin-bottom: 30px;
   }
 
 
-/* felx box */
+  /* felx box */
 
-.card {
-  height: 60vh;
-  margin: 20px;
-  padding: 25spx;
+  .card {
+    height: 70vh;
+    margin-top: 50px;
+    padding: 25px;
+  }
+
+  .center img {
+    text-decoration: none;
+    color: inherit;
+    border: none;
+    outline: none;
+    height: 200px;
+    width: 300px;
+    align-items: center;
+    margin-top: 30px;
+  }
+
 }
 
-.center img {
-  text-decoration: none;
-  color: inherit;
-  border: none;
-  outline: none;
-  height: 200px;
-  width: 300px;
-  align-items: center;
-  margin-top: 30px;
+.container {
+  padding-bottom: 10px;
 }
 
-}
 .center {
   position: absolute;
   top: 55%;
@@ -47,18 +50,44 @@
   margin-top: 20px !important;
   font-weight: 400;
   align-items: center;
-  padding: 12px 72px;
+  padding: 10px 50px;
   margin-left: 20px;
-  border-radius: 3px !important;
+  border-radius: 5px;
 }
 
-.centerBtn{
-  font-size: 15px !important;
-  font-weight: 500;
-  padding: 12px 30px;
+.cart-buttons {
+  display: flex;
+  justify-content: space-between;
+}
 
+#quantity {
+  border: 1px solid grey;
+  width: 30px;
+  height: 30px;
+  display: flex;
   align-items: center;
-  border-radius: 10px !important;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+.cart-item {
+  width: 100%;
+}
+
+.quantity-button-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .row {
+  border-radius: 10px;
+  padding-top: 15px;
+  border: rgba(128, 128, 128, 0.4) solid;
+  margin-bottom: 20px;
+} */
+
+.cart-details {
+  border: rgba(128, 128, 128, 0.4) solid;
 }
 
 
@@ -69,10 +98,8 @@
   color: #fff;
   transition: .3s;
 }
+
 .orderbutton-3:hover {
   box-shadow: 8px 8px #888888;
   transition: .3s;
 }
-
-
-

@@ -65,7 +65,7 @@ export class ProfileComponent implements OnInit {
     })
   }
 
-  logout(){
+  logout() {
     localStorage.clear();
     this.router.navigate(['/home']);
   }

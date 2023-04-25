@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Customer } from 'src/app/entities/customer';
 import { Order } from 'src/app/entities/order';
 import { PastCartItem } from 'src/app/entities/past-cart-item';
 import { CustomerService } from 'src/app/services/customer.service';
@@ -15,7 +16,7 @@ export class PastOrdersComponent implements OnInit {
   orders: Order[];
   email: any = localStorage.getItem("customerEmailId");
 
-  constructor(private customerService: CustomerService, private dialog: MatDialog,private router: Router) { }
+  constructor(private customerService: CustomerService, private dialog: MatDialog, private router: Router) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem("authenticationToken");
@@ -24,9 +25,9 @@ export class PastOrdersComponent implements OnInit {
     }
     this.getOrders();
     const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
-    if(tokenExpirationTime){
+    if (tokenExpirationTime) {
       const nowTime = new Date().getTime();
-      if(nowTime-(+tokenExpirationTime) > 0){
+      if (nowTime - (+tokenExpirationTime) > 0) {
         alert("Session Expired. Please Login Again...");
         localStorage.clear();
         this.router.navigate(['/login']);
@@ -34,7 +35,7 @@ export class PastOrdersComponent implements OnInit {
     }
   }
 
-  navigate(){
+  navigate() {
     this.router.navigate(['/profile']);
   }
 

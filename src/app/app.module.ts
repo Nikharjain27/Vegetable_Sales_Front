@@ -30,9 +30,7 @@ import { MatInputModule } from '@angular/material/input';
 import { DeleteComponent } from './components/delete/delete.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchProductPipe } from './components/search/search-product.pipe';
-
 import { MatDividerModule } from '@angular/material/divider';
-
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCommonModule } from '@angular/material/core';
@@ -43,13 +41,12 @@ import { UpdateCustomerComponent } from './components/update-customer/update-cus
 import { UpdateCustomerComponent as adminUpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
+import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
-
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
-import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
 import { MatTableModule } from '@angular/material/table';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -75,6 +72,7 @@ import { UpdateOrderComponent } from './components/admin/update-order/update-ord
     SearchProductPipe,
     AddproductComponent,
     PastOrdersComponent,
+    PastCartItemsComponent,
     AboutusComponent,
     ContactusComponent,
     LoadingspinnerComponent,
@@ -120,10 +118,12 @@ import { UpdateOrderComponent } from './components/admin/update-order/update-ord
     MatSelectModule,
     MatDividerModule,
   ],
-  providers: [ProductService, CustomerService,{ provide: MAT_DIALOG_DATA, useValue: {} }],
+  providers: [
+    ProductService,
+    CustomerService,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   bootstrap: [AppComponent],
-  schemas: [
-    NO_ERRORS_SCHEMA
-  ]
+  schemas: [NO_ERRORS_SCHEMA],
 })
 export class AppModule {}

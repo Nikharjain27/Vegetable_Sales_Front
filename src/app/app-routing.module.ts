@@ -9,16 +9,14 @@ import { CartComponent } from './components/cart/cart.component';
 import { ProductsComponent } from './components/products/products.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
-import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
 import { UpdateCustomerComponent as adminUpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
-
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -41,13 +39,14 @@ const routes: Routes = [
     ],
   },
   { path: 'signup', component: SignUpComponent },
-  { path: 'aboutus', component: AboutusComponent},
-  { path: 'contactus', component: ContactusComponent},
+  { path: 'aboutus', component: AboutusComponent },
+  { path: 'contactus', component: ContactusComponent },
   { path: 'past-orders', component: PastOrdersComponent },
-  { path:'**' ,component:PagenotfoundComponent},
-  ];
+  { path: '**', component: PagenotfoundComponent },
+];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
