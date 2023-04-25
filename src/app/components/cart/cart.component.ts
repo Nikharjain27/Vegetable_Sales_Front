@@ -15,9 +15,6 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class CartComponent implements OnInit {
 
-  public product: any = [];
-  totalAmountl: number;
-
   currentCart: Cart;
 
   constructor(private cartService: CartService, private dialog: MatDialog,
@@ -39,6 +36,13 @@ export class CartComponent implements OnInit {
         this.router.navigate(['/login']);
       }
     }
+  }
+
+  cartIsEmpty() {
+    if (this.currentCart.cartItems.length == 0) {
+      return false;
+    }
+    else return true;
   }
 
   getCart(cartId: any): void {

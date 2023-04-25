@@ -17,7 +17,7 @@
 
 .card {
   height: 60vh;
-  margin: 25px;
+  margin: 20px;
   padding: 25spx;
 }
 
@@ -26,9 +26,10 @@
   color: inherit;
   border: none;
   outline: none;
-  height: 100px;
-  width: 200px;
-  margin: 10px 10px;
+  height: 200px;
+  width: 300px;
+  align-items: center;
+  margin-top: 30px;
 }
 
 }
@@ -59,3 +60,19 @@
   align-items: center;
   border-radius: 10px !important;
 }
+
+
+/*  order button css */
+.orderbutton-3 {
+  border: 2px solid;
+  border-radius: 20px;
+  color: #fff;
+  transition: .3s;
+}
+.orderbutton-3:hover {
+  box-shadow: 8px 8px #888888;
+  transition: .3s;
+}
+
+
+

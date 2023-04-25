@@ -41,6 +41,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { LoadingspinnerComponent } from './components/loadingspinner/loadingspinner.component';
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ProductListForAdminComponent } from './components/product-list-for-admi
     LoadingspinnerComponent,
     UpdateproductComponent,
     ProductListForAdminComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
