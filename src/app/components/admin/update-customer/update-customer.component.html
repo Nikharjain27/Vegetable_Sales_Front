@@ -1,0 +1,188 @@
+<mat-card style="background-color: #f9f9f9">
+  <h1>All Customers</h1>
+  <div class="mt-3" style="width: auto">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone</th>
+          <th scope="col">Address</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody class="tbody">
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.customerId }}</td>
+          <td>{{ customer.customerName }}</td>
+          <td>{{ customer.customerEmail }}</td>
+          <td>{{ customer.customerPhone }}</td>
+          <td>{{ customer.customerAddress }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              (click)="loadCustomerData(customer)"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Edit
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteCustomer(customer.customerId)"
+            >
+              <i class="bi bi-trash"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</mat-card>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Cusmoter</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div mat-dialog-content>
+          <div class="row">
+            <form #updateForm="ngForm">
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="name">Customer Name :</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    #name
+                    [(ngModel)]="customerToUpdate.customerName"
+                    name="name"
+                    id="name"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="address">Customer Email :</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    #address
+                    [(ngModel)]="customerToUpdate.customerEmail"
+                    name="email"
+                    id="email"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="percentage">Customer Phone :</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    #percentage
+                    [(ngModel)]="customerToUpdate.customerPhone"
+                    name="phone"
+                    id="phone"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="percentage">Customer Address :</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    #percentage
+                    [(ngModel)]="customerToUpdate.customerAddress"
+                    name="address"
+                    id="address"
+                  />
+                </mat-form-field>
+              </div>
+              <!-- <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="percentage">Customer Pincode :</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    #percentage
+                    [(ngModel)]="customerToUpdate.cuatomerPincode"
+                    name="pincoe"
+                    id="pincode"
+                  />
+                </mat-form-field>
+              </div> -->
+              <div class="form-group">
+                <button
+                  type="submit"
+                  value="Update"
+                  class="btn btn-primary w-100"
+                  (click)="updateCustomer(customerToUpdate)"
+                >
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <div mat-dialog-title>
+  <h1>Edit</h1>
+</div>
+<form>
+  <div mat-dialog-content>
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput ng-model="" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Phone</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+        <input matInput />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Pincode</mat-label>
+        <input matInput />
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-raised-button>Cancle</button>
+    <button mat-raised-button color="primary">Save</button>
+  </div>
+</form> -->

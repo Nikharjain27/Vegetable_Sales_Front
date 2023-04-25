@@ -19,7 +19,7 @@ export class ProductService {
     return this.http.post(`${this.BASEURL}/product`, product, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`,
+        // 'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
@@ -28,7 +28,7 @@ export class ProductService {
     return this.http.put(`${this.BASEURL}/product`, product, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`,
+        // 'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
@@ -37,7 +37,7 @@ export class ProductService {
     return this.http.get<Product>(`${this.BASEURL}/product/${productId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`,
+        // 'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
@@ -48,7 +48,7 @@ export class ProductService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.token}`,
+          // 'Authorization': `Bearer ${this.token}`,
         }),
       }
     );
@@ -58,7 +58,7 @@ export class ProductService {
     return this.http.delete<Product>(`${this.BASEURL}/product/${productId}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.token}`,
+        // 'Authorization': `Bearer ${this.token}`,
       }),
     });
   }
