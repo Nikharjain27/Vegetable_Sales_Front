@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -13,22 +13,27 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { CartComponent } from './components/cart/cart.component';
 import { OrderComponent } from './components/order/order.component';
+import { ProductService } from './services/product.service';
+import { AdminComponent } from './components/admin/admin.component';
+import { CustomerService } from './services/customer.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { EditComponent } from './components/edit/edit.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { DeleteComponent } from './components/delete/delete.component';
 import { ProductsComponent } from './components/products/products.component';
 import { SearchProductPipe } from './components/search/search-product.pipe';
 
 import { MatDividerModule } from '@angular/material/divider';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCommonModule } from '@angular/material/core';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -44,6 +49,7 @@ import { LoadingspinnerComponent } from './components/loadingspinner/loadingspin
 import { UpdateproductComponent } from './components/updateproduct/updateproduct.component';
 import { ProductListForAdminComponent } from './components/product-list-for-admin/product-list-for-admin.component';
 import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -59,6 +65,9 @@ import { PastCartItemsComponent } from './components/past-cart-items/past-cart-i
     CartComponent,
     OrderComponent,
     UpdateCustomerComponent,
+    AdminComponent,
+    EditComponent,
+    DeleteComponent,
     SearchProductPipe,
     AddproductComponent,
     PastOrdersComponent,
@@ -68,11 +77,23 @@ import { PastCartItemsComponent } from './components/past-cart-items/past-cart-i
     UpdateproductComponent,
     ProductListForAdminComponent,
     PastCartItemsComponent,
+    UpdateCustomerComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FormsModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
@@ -93,7 +114,7 @@ import { PastCartItemsComponent } from './components/past-cart-items/past-cart-i
     MatSelectModule,
     MatDividerModule,
   ],
-  providers: [],
+  providers: [ProductService, CustomerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

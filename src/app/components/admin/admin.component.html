@@ -1,0 +1,34 @@
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mt-4">
+        <mat-card style="background-color: #f9f9f9">
+          <h1>Admin Dashboard</h1>
+        </mat-card>
+      </div>
+      <div class="col-md-2 mt-3">
+        <mat-card style="background-color: #f9f9f9">
+          <mat-action-list>
+            <div mat-subheader>Menu</div>
+            <button routerLink="/admin/customers" mat-list-item>
+              <mat-icon mat-list-icon>groups</mat-icon> Customers
+            </button>
+            <button mat-list-item routerLink="/admin/admin-product-list">
+              <mat-icon mat-list-icon>inventory_2</mat-icon> Products
+            </button>
+            <button mat-list-item routerLink="/admin/orders">
+              <mat-icon mat-list-icon>list_alt</mat-icon> Order
+            </button>
+            <!-- <button mat-list-item routerLink="/admin/profile">
+        <mat-icon mat-list-icon>logout</mat-icon> Logout
+      </button> -->
+          </mat-action-list>
+        </mat-card>
+      </div>
+
+      <div class="col-md-10 mt-3">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

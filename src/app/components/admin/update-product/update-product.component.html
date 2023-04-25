@@ -1,0 +1,148 @@
+<mat-card>
+  <span>All Products</span>
+  <button class="btn btn-success" style="margin-left: 1000px">
+    Add Products
+  </button>
+  <div class="mt-3" style="width: auto">
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Descripton</th>
+          <th scope="col">Price</th>
+          <th scope="col">Type</th>
+          <th scope="col">Edit</th>
+          <th scope="col">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.productId }}</td>
+          <td>{{ product.productName }}</td>
+          <td>{{ product.productDescription }}</td>
+          <td>{{ product.productPrice }}</td>
+          <td>{{ product.productType }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Edit
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="deleteProducts(product.productId)"
+            >
+              <i class="bi bi-trash"></i>
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</mat-card>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Update Product</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div mat-dialog-content>
+          <div class="row">
+            <form #updateForm="ngForm">
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="name">Product Name :</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    #name
+                    [(ngModel)]="productToUpdate.name"
+                    name="name"
+                    id="name"
+                  />
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="address">Product Discription :</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    #address
+                    [(ngModel)]="productToUpdate.discription"
+                    name="email"
+                    id="email"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="percentage">Product Price :</mat-label>
+                  <input
+                    matInput
+                    type="number"
+                    #percentage
+                    [(ngModel)]="productToUpdate.price"
+                    name="phone"
+                    id="phone"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <mat-form-field appearance="outline" class="wd">
+                  <mat-label for="percentage">Product Type :</mat-label>
+                  <input
+                    matInput
+                    type="text"
+                    #percentage
+                    [(ngModel)]="productToUpdate.type"
+                    name="address"
+                    id="address"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form-group">
+                <input
+                  type="submit"
+                  value="Update"
+                  class="btn btn-primary w-100"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
