@@ -15,6 +15,7 @@ import { ProductListForAdminComponent } from './components/product-list-for-admi
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
+import { UpdateCustomerComponent as adminUpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
@@ -33,7 +34,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     children: [
-      { path: 'customers', component: UpdateCustomerComponent },
+      { path: 'customers', component: adminUpdateCustomerComponent },
       { path: '', component: UpdateCustomerComponent },
       { path: 'admin-product-list', component: ProductListForAdminComponent },
       { path: 'orders', component: UpdateOrderComponent },

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatListModule } from '@angular/material/list';
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +40,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
+import { UpdateCustomerComponent as adminUpdateCustomerComponent } from './components/admin/update-customer/update-customer.component';
 import { AddproductComponent } from './components/addproduct/addproduct.component';
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { AboutusComponent } from './components/aboutus/aboutus.component';
@@ -51,6 +52,8 @@ import { ProductListForAdminComponent } from './components/product-list-for-admi
 import { PastCartItemsComponent } from './components/past-cart-items/past-cart-items.component';
 import { MatTableModule } from '@angular/material/table';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 
 @NgModule({
   declarations: [
@@ -78,8 +81,9 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     UpdateproductComponent,
     ProductListForAdminComponent,
     PastCartItemsComponent,
-    UpdateCustomerComponent,
+    adminUpdateCustomerComponent,
     PagenotfoundComponent,
+    UpdateOrderComponent,
   ],
   imports: [
     MatProgressSpinnerModule,
@@ -91,7 +95,6 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     FormsModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatDialogModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
@@ -106,7 +109,6 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     MatCardModule,
     MatIconModule,
     MatTabsModule,
-    MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
@@ -118,7 +120,10 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
     MatSelectModule,
     MatDividerModule,
   ],
-  providers: [ProductService, CustomerService],
+  providers: [ProductService, CustomerService,{ provide: MAT_DIALOG_DATA, useValue: {} }],
   bootstrap: [AppComponent],
+  schemas: [
+    NO_ERRORS_SCHEMA
+  ]
 })
 export class AppModule {}

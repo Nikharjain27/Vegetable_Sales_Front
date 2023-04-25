@@ -15,6 +15,8 @@ export class LoginComponent implements OnInit {
   isLoading: boolean = false;
   error : string | null;
   authenticationToken: any;
+  adminName: string;
+  adminPassword: string;
   constructor(
     private httpClient: HttpClient,
     private router: Router,
@@ -42,6 +44,12 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     this.isLoading = true;
+    if(this.adminName === 'admin@admin.com' && this.adminPassword === 'admin@123'){
+      this.isLoading = false;
+      alert("Welcome Admin");
+      this.router.navigate(['/admin/customers']);
+      return;
+    }
     this.httpClient
       .post(
         'http://localhost:9091/customer-section/login',

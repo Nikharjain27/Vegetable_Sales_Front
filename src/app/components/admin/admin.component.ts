@@ -6,6 +6,7 @@ import { MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { DeleteComponent } from '../delete/delete.component';
 import { AdminService } from 'src/app/services/admin.service';
 import { Order } from 'src/app/entities/order';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -16,8 +17,11 @@ export class AdminComponent implements OnInit {
   customers: Customer[];
   products: Product[];
   orders: Order[];
-  constructor(private _admin: AdminService, private _dialog: MatDialog) {}
+  constructor(private _admin: AdminService, private _dialog: MatDialog,private router: Router) {}
 
+  logoutAdmin(){
+    this.router.navigate(['/login']);
+  }
   ngOnInit(): void {
     // this.getAllCustomers();
     // this.getAllProduct();
