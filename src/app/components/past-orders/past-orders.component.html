@@ -9,21 +9,17 @@
       <th>Billing Amount</th>
       <th>Billing Address</th>
       <th>Payment Type</th>
-      <th>Action</th>
+      <th>Ordered Items</th>
     </thead>
-    <tbody *ngFor="let order of orders">
-      <td>{{ order.orderId }}</td>
+    <tbody *ngFor="let order of orders; let i=index;">
+      <td>{{order.orderId}}</td>
       <td>{{order.billingDate | date}}</td>
-      <td>{{ order.billingAmount | currency : "INR" }}</td>
-      <td>{{ order.billingAddress }}</td>
-      <td>{{ order.payment.paymentType }}</td>
+      <td>{{order.billingAmount | currency:'INR'}}</td>
+      <td>{{order.billingAddress}}</td>
+      <td>{{order.payment.paymentType}}</td>
       <td>
         <div>
-          <button
-            (click)="showPastCartItems(order.cartItems)"
-            mat-mini-fab
-            color="primary"
-          >
+          <button (click)="showPastCartItems(order.cartItems)" mat-mini-fab color="primary">
             <mat-icon>menu</mat-icon>
           </button>
         </div>
@@ -36,14 +32,10 @@
   <div class="center">
     <img
       src="https://rukminim1.flixcart.com/www/800/800/promos/16/05/2019/d438a32e-765a-4d8b-b4a6-520b560971e8.png?q=90"
-      alt="img not f"
-    />
+      alt="img not f" />
     <h1>No Orders to Show!</h1>
     <h5>Order Now !!!</h5>
-    <button
-      [routerLink]="['/product-list-for-customer']"
-      class="btn btn-primary"
-    >
+    <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary">
       Order Now
     </button>
   </div>

@@ -1,0 +1,12 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+}
+
+div{
+  text-align: center;
+
+  font-size:70px;
+}

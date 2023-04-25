@@ -3,17 +3,11 @@
     <div class="row">
       <div class="col-lg-4">
         <div class="card mb-4" class="shadow p-3 mb-5 bg-white rounded">
-          <div class="card-body text-center">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-              alt="avatar"
-              class="rounded-circle img-fluid"
-              style="width: 150px"
-            />
-            <h2 class="my-3">
-              <span *ngIf="customer.customerName === null">Not filled yet</span
-              >{{ customer.customerName }}
-            </h2>
+          <div class="card-body text-center"> <img
+              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px" />
+            <h2 class="my-3"><span *ngIf="customer.customerName===null">Not filled
+                yet</span>{{customer.customerName}}</h2>
           </div>
         </div>
       </div>
@@ -25,11 +19,8 @@
                 <p class="mb-0">Name</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">
-                  <span *ngIf="customer.customerName === null"
-                    >Not filled yet</span
-                  >{{ customer.customerName }}
-                </p>
+                <p class="text-muted mb-0"><span *ngIf="customer.customerName===null">Not filled
+                    yet</span>{{customer.customerName}}</p>
               </div>
             </div>
             <hr />
@@ -38,11 +29,8 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">
-                  <span *ngIf="customer.customerEmail === null"
-                    >Not filled yet</span
-                  >{{ customer.customerEmail }}
-                </p>
+                <p class="text-muted mb-0"><span *ngIf="customer.customerEmail===null">Not filled
+                    yet</span>{{customer.customerEmail}}</p>
               </div>
             </div>
             <hr />
@@ -51,11 +39,8 @@
                 <p class="mb-0">Mobile</p>
               </div>
               <div class="col-sm-9">
-                <p class="text-muted mb-0">
-                  <span *ngIf="customer.customerPhone === null"
-                    >Not filled yet</span
-                  >{{ customer.customerPhone }}
-                </p>
+                <p class="text-muted mb-0"><span *ngIf="customer.customerPhone===null">Not filled
+                    yet</span>{{customer.customerPhone}}</p>
               </div>
             </div>
             <hr />
@@ -65,9 +50,7 @@
               </div>
               <div class="col-sm-9">
                 <p class="text-muted mb-0">
-                  <span *ngIf="customer.customerAddress === null"
-                    >Not filled yet</span
-                  >{{ customer.customerAddress }}
+                  <span *ngIf="customer.customerAddress === null">Not filled yet</span>{{ customer.customerAddress }}
                 </p>
               </div>
             </div>
@@ -76,31 +59,16 @@
       </div>
     </div>
   </div>
-  <div class="row text-center">
-    <div class="col-lg-2"></div>
-    <button
-      class="col-lg-2"
-      mat-raised-button
-      color="primary"
-      (click)="showOrders()"
-    >
+  <div class="row text-center action-buttons">
+    <button class="col-lg-2" mat-raised-button color="primary" (click)="showOrders()">
       Past Orders
     </button>
-    <div class="col-lg-1"></div>
     <button class="col-lg-2" mat-raised-button color="warn" (click)="logout()">
       Logout
     </button>
-    <div class="col-lg-1"></div>
-    <button
-      class="col-lg-2"
-      mat-raised-button
-      color="primary"
-      (click)="updateCustomer(customer)"
-    >
+    <button class="col-lg-2" mat-raised-button color="primary" (click)="updateCustomer(customer)">
       Update Profile
     </button>
   </div>
-  <div class="text-center"></div>
-
-  <br/>
+  <br />
 </section>
