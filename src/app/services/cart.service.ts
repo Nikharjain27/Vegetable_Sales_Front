@@ -22,6 +22,8 @@ export class CartService {
       }),
     });
   }
+
+  //Implemented in Product.ts
   addToCart(cartId: any, productId: number): Observable<any> {
     return this.http.post(
       `${baseUrl}/add-to-cart/${cartId}/${productId}`,

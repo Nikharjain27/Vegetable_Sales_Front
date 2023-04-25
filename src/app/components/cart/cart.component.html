@@ -1,8 +1,22 @@
 <h1 style="margin-top: 15px; margin-left: 90px"><b> <i class="bi bi-cart4"></i> My cart</b></h1>
 
 
+<ng-container *ngIf="cartIsEmpty() == false">
+  <div class="container shadow p-1  bg-body rounded">
+    <div class="card"></div>
+    <div class="center">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png?f=webp">
+      <b><h1>Your cart is Empty!</h1></b>
+      <h4>Add something to make me happy  <i class="bi bi-emoji-heart-eyes "></i></h4>
+      <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary orderbutton-3">
+        <i   class="bi bi-bicycle "> Order Now</i>
+      </button>
+    </div>
+  </div>
+</ng-container>
+
 <div class="container">
-  <div *ngIf="cartPresent() == true" class="row ">
+  <div *ngIf="cartIsEmpty() == true" class="row ">
     <div class="list-cart-item col-md-3 col-sm-4 " *ngFor="let cartItem of currentCart.cartItems; let i = index"
       [class.active]="i == currentIndex" (click)="setActiveCartItem(cartItem, i)">
       <mat-card class="mat-card shadow p-3 mb-5 bg-body rounded" style="width: 70%;margin: auto;">
@@ -12,13 +26,13 @@
           </mat-card-title>
         </mat-card-title-group>
         <mat-card-title-group>
-          <!-- <mat-card-subtitle>{{ cartItem.cartItemType }}</mat-card-subtitle> -->
+
           <img height="200px" sizes="100px" mat-card-image src="{{ cartItem.cartItemImage }}" alt="product Photo" />
         </mat-card-title-group>
         <mat-card-content>
-          <!-- <h4>Description: {{ cartItem.cartItemDescription }}</h4> -->
+
           <h4>
-            Price: <b> ₹ {{ cartItem.cartItemPrice }} </b>
+            Price: <b>{{ cartItem.cartItemPrice  | currency:'INR'}} </b>
           </h4>
         </mat-card-content>
         <mat-card-actions style="display: flex; justify-content: space-evenly">
@@ -62,16 +76,3 @@
   </div>
 </div>
 
-<ng-container *ngIf="cartPresent() == false">
-  <div class="container shadow p-1  bg-body rounded">
-    <div class="card"></div>
-    <div class="center">
-      <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png?f=webp">
-      <b><h1>Your cart is Empty!</h1></b>
-      <h4>Add something to make me happy  <i class="bi bi-emoji-heart-eyes "></i></h4>
-      <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary orderbutton-3">
-        <i   class="bi bi-bicycle "> Order Now</i>
-      </button>
-    </div>
-  </div>
-</ng-container>

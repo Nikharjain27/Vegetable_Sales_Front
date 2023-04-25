@@ -14,8 +14,8 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public product: any = [];
-  totalAmountl: number;
+  //public product: any = [];
+  //totalAmountl: number;
 
   currentCart: Cart;
   currentCartItem: CartItem;
@@ -28,6 +28,13 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCart(localStorage.getItem("customerCartId"));
+  }
+
+  cartIsEmpty(){
+    if(this.currentCart.cartItems.length == 0){
+      return false;
+    }
+    else return true;
   }
 
   getCart(cartId: any): void {
@@ -101,11 +108,6 @@ export class CartComponent implements OnInit {
     });
   }
 
-  cartPresent(){
-    if(this.currentCart.cartItems.length == 0){
-      return false;
-    }
-    else return true;
-  }
+
 
 }
