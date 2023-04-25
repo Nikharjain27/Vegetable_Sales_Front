@@ -17,6 +17,10 @@ export class SignUpComponent implements OnInit {
   constructor(private httpClient: HttpClient,private router: Router) {}
 
   ngOnInit() {
+    const token = localStorage.getItem("authenticationToken");
+    if(token){
+      this.router.navigate(['/home']);
+    }
     this.signupForm = new FormGroup({
       'customerName' : new FormControl('',[Validators.required,Validators.minLength(3),Validators.pattern("^[A-Za-z][A-Za-z0-9_ ]{2,29}$")]),
       'customerEmail' : new FormControl('',[Validators.required,Validators.email,Validators.minLength(13),Validators.pattern("^[a-zA-Z0-9+_.-]+@gmail.com$")]),

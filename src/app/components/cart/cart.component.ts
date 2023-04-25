@@ -5,6 +5,7 @@ import { CartItem } from 'src/app/entities/cart-item';
 import { PaymentComponent } from '../payment/payment.component';
 import { Cart } from 'src/app/entities/cart';
 import { CartService } from 'src/app/services/cart.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 
 @Component({
@@ -24,15 +25,20 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService, private dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router,private custService: CustomerService) { }
 
   ngOnInit(): void {
+    const token = localStorage.getItem("authenticationToken");
+    if(!token){
+      this.router.navigate(['/login']);
+    }
     this.getCart(localStorage.getItem("customerCartId"));
     const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
     if(tokenExpirationTime){
       const nowTime = new Date().getTime();
       if(nowTime-(+tokenExpirationTime) > 0){
         alert("Session Expired. Please Login Again...");
+        localStorage.clear();
         this.router.navigate(['/login']);
       }
     }
@@ -95,6 +101,11 @@ export class CartComponent implements OnInit {
   }
 
   openDialog() {
+    // const flag = this.custService.checkAddress();
+    // if(flag){
+    //   alert("Please Fill Address First...");
+    //   this.router.navigate(['/profile']);
+    // }
     let dialogRef = this.dialog.open(PaymentComponent, {
       width: '600px',
       height: '500px',

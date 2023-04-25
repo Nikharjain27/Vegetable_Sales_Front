@@ -23,6 +23,10 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    const token = localStorage.getItem("authenticationToken");
+    if(token){
+      this.router.navigate(['/home']);
+    }
     this.loginForm = new FormGroup({
       customerEmail: new FormControl('', [
         Validators.required,
