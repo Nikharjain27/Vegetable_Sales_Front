@@ -5,6 +5,7 @@ import { CartItem } from 'src/app/entities/cart-item';
 import { PaymentComponent } from '../payment/payment.component';
 import { Cart } from 'src/app/entities/cart';
 import { CartService } from 'src/app/services/cart.service';
+import { CustomerService } from 'src/app/services/customer.service';
 
 
 @Component({
@@ -14,27 +15,30 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  //public product: any = [];
-  //totalAmountl: number;
+  public product: any = [];
+  totalAmountl: number;
 
   currentCart: Cart;
-  currentCartItem: CartItem;
-  currentIndex: number;
-
 
   constructor(private cartService: CartService, private dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router, private custService: CustomerService) { }
 
   ngOnInit(): void {
-    this.getCart(localStorage.getItem("customerCartId"));
-  }
-
-  cartIsEmpty(){
-    if(this.currentCart.cartItems.length == 0){
-      return false;
+    const token = localStorage.getItem("authenticationToken");
+    if (!token) {
+      this.router.navigate(['/login']);
     }
-    else return true;
+    this.getCart(localStorage.getItem("customerCartId"));
+    const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
+    if (tokenExpirationTime) {
+      const nowTime = new Date().getTime();
+      if (nowTime - (+tokenExpirationTime) > 0) {
+        alert("Session Expired. Please Login Again...");
+        localStorage.clear();
+        this.router.navigate(['/login']);
+      }
+    }
   }
 
   getCart(cartId: any): void {
@@ -80,7 +84,7 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllFromCart(cartId).subscribe({
       next: (data) => {
         this.currentCart = data;
-        alert("Cart clared successfully!");
+        alert("Cart cleared successfully!");
       },
       error: (err) => {
         console.log(err);
@@ -88,9 +92,22 @@ export class CartComponent implements OnInit {
     });
   }
 
-  setActiveCartItem(cartItem: CartItem, index: number): void {
-    this.currentCartItem = cartItem;
-    this.currentIndex = index;
+  proceedToPayment() {
+    this.custService.checkAddress().subscribe({
+      next: (value) => {
+        console.log(value);
+        if (!value) {
+          this.openDialog();
+        }
+        else {
+          alert("You have not filled address in profile. Please update it first.");
+          this.router.navigate(['/profile']);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    })
   }
 
   openDialog() {
@@ -108,6 +125,11 @@ export class CartComponent implements OnInit {
     });
   }
 
-
+  cartIsEmpty() {
+    if (this.currentCart.cartItems.length == 0) {
+      return false;
+    }
+    else return true;
+  }
 
 }
