@@ -18,6 +18,10 @@ export class PastOrdersComponent implements OnInit {
   constructor(private customerService: CustomerService, private dialog: MatDialog,private router: Router) { }
 
   ngOnInit(): void {
+    const token = localStorage.getItem("authenticationToken");
+    if(!token){
+      this.router.navigate(['/login']);
+    }
     this.getOrders();
     const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
     if(tokenExpirationTime){

@@ -14,6 +14,7 @@ export class HomeComponent implements OnInit {
     const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
     if(tokenExpirationTime){
       const nowTime = new Date().getTime();
+      console.log("here");
       if(nowTime-(+tokenExpirationTime) > 0){
         alert("Session Expired. Please Login Again...");
         this.router.navigate(['/login']);

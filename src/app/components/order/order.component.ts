@@ -18,6 +18,10 @@ export class OrderComponent implements OnInit {
   order: any = null;
   cartItems: any;
   ngOnInit(): void {
+    const token = localStorage.getItem("authenticationToken");
+    if(!token){
+      this.router.navigate(['/login']);
+    }
     const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
     if(tokenExpirationTime){
       const nowTime = new Date().getTime();
