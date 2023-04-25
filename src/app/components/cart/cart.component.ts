@@ -25,18 +25,18 @@ export class CartComponent implements OnInit {
 
   constructor(private cartService: CartService, private dialog: MatDialog,
     private route: ActivatedRoute,
-    private router: Router,private custService: CustomerService) { }
+    private router: Router, private custService: CustomerService) { }
 
   ngOnInit(): void {
     const token = localStorage.getItem("authenticationToken");
-    if(!token){
+    if (!token) {
       this.router.navigate(['/login']);
     }
     this.getCart(localStorage.getItem("customerCartId"));
     const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
-    if(tokenExpirationTime){
+    if (tokenExpirationTime) {
       const nowTime = new Date().getTime();
-      if(nowTime-(+tokenExpirationTime) > 0){
+      if (nowTime - (+tokenExpirationTime) > 0) {
         alert("Session Expired. Please Login Again...");
         localStorage.clear();
         this.router.navigate(['/login']);
@@ -87,7 +87,7 @@ export class CartComponent implements OnInit {
     this.cartService.removeAllFromCart(cartId).subscribe({
       next: (data) => {
         this.currentCart = data;
-        alert("Cart clared successfully!");
+        alert("Cart cleared successfully!");
       },
       error: (err) => {
         console.log(err);
@@ -100,12 +100,25 @@ export class CartComponent implements OnInit {
     this.currentIndex = index;
   }
 
+  proceedToPayment() {
+    this.custService.checkAddress().subscribe({
+      next: (value) => {
+        console.log(value);
+        if (!value) {
+          this.openDialog();
+        }
+        else {
+          alert("You have not filled address in profile. Please update it first.");
+          this.router.navigate(['/profile']);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    })
+  }
+
   openDialog() {
-    // const flag = this.custService.checkAddress();
-    // if(flag){
-    //   alert("Please Fill Address First...");
-    //   this.router.navigate(['/profile']);
-    // }
     let dialogRef = this.dialog.open(PaymentComponent, {
       width: '600px',
       height: '500px',
@@ -120,8 +133,8 @@ export class CartComponent implements OnInit {
     });
   }
 
-  cartPresent(){
-    if(this.currentCart.cartItems.length == 0){
+  cartPresent() {
+    if (this.currentCart.cartItems.length == 0) {
       return false;
     }
     else return true;

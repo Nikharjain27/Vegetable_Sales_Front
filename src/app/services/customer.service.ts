@@ -9,20 +9,17 @@ import { Customer } from '../entities/customer';
 export class CustomerService {
   private baseURL = 'http://localhost:9091/customer-section';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  checkAddress(): Observable<Boolean> {
-    return this.httpClient.post<Boolean>(
-      `${this.baseURL}/customer/${localStorage.getItem("customerEmailId")}`,
+  checkAddress(): Observable<boolean> {
+    return this.httpClient.get<boolean>(
+      `${this.baseURL}/customer/check-address/${localStorage.getItem("customerEmailId")}`,
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem(
-            'authenticationToken'
-          )}`,
+          'Authorization': `Bearer ${localStorage.getItem('authenticationToken')}`,
         }),
-      }
-    );
+      });
   }
 
   isLoggedIn() {
