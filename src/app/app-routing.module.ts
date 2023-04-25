@@ -42,6 +42,7 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent},
   { path: 'contactus', component: ContactusComponent},
   { path: 'past-orders', component: PastOrdersComponent },
+  { path: '*', component: PastOrdersComponent },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

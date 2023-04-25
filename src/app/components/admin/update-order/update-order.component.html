@@ -1,4 +1,4 @@
-<mat-card style="background-color: #f9f9f9">
+<div style="background-color: #f9f9f9">
   <h1>All Orders</h1>
   <div class="mt-3" style="width: auto">
     <table class="table table-bordered">
@@ -18,15 +18,15 @@
       <tbody>
         <tr *ngFor="let order of orders">
           <td>{{ order.orderId }}</td>
-          <td>{{ order.billingDate | date }}</td>
+          <td>{{ order.billingDate }}</td>
           <td>{{ order.billingAmount }}</td>
           <td>{{ order.billingAddress }}</td>
           <td>{{ order.payment.paymentId }}</td>
-          <td>{{ order.payment.paymentDate | date }}</td>
+          <td>{{ order.payment.paymentDate }}</td>
           <td>{{ order.payment.paymentTime }}</td>
           <td>{{ order.payment.paymentType }}</td>
         </tr>
       </tbody>
     </table>
   </div>
-</mat-card>
+</div>

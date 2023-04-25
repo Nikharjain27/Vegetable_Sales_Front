@@ -81,6 +81,8 @@ import { MatTableModule } from '@angular/material/table';
   ],
   imports: [
     MatProgressSpinnerModule,
+    MatListModule,
+    MatTableModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
