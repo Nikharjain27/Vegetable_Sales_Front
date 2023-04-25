@@ -15,6 +15,7 @@ import { ProductListForAdminComponent } from './components/product-list-for-admi
 import { PastOrdersComponent } from './components/past-orders/past-orders.component';
 import { UpdateOrderComponent } from './components/admin/update-order/update-order.component';
 import { UpdateCustomerComponent } from './components/update-customer/update-customer.component';
+import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 
 
 
@@ -42,8 +43,8 @@ const routes: Routes = [
   { path: 'aboutus', component: AboutusComponent},
   { path: 'contactus', component: ContactusComponent},
   { path: 'past-orders', component: PastOrdersComponent },
-  { path: '*', component: PastOrdersComponent },
-];
+  { path:'**' ,component:PagenotfoundComponent},
+  ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
