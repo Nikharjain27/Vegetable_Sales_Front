@@ -2,8 +2,7 @@
 
 <div class="container">
   <div *ngIf="cartPresent() == true" class="row">
-    <div class="list-cart-item col-md-3 col-sm-4" *ngFor="let cartItem of currentCart.cartItems; let i = index"
-      [class.active]="i == currentIndex" (click)="setActiveCartItem(cartItem, i)">
+    <div class="list-cart-item col-md-3 col-sm-4" *ngFor="let cartItem of currentCart.cartItems; let i = index">
       <mat-card class="mat-card" style="width: 70%;margin: auto;">
         <mat-card-title-group>
           <mat-card-title>
@@ -11,11 +10,9 @@
           </mat-card-title>
         </mat-card-title-group>
         <mat-card-title-group>
-          <!-- <mat-card-subtitle>{{ cartItem.cartItemType }}</mat-card-subtitle> -->
           <img height="200px" sizes="100px" mat-card-image src="{{ cartItem.cartItemImage }}" alt="product Photo" />
         </mat-card-title-group>
         <mat-card-content>
-          <!-- <h4>Description: {{ cartItem.cartItemDescription }}</h4> -->
           <h4>
             Price: <b> ₹ {{ cartItem.cartItemPrice }} </b>
           </h4>

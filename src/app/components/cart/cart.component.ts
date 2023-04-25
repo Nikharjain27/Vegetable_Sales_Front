@@ -19,9 +19,6 @@ export class CartComponent implements OnInit {
   totalAmountl: number;
 
   currentCart: Cart;
-  currentCartItem: CartItem;
-  currentIndex: number;
-
 
   constructor(private cartService: CartService, private dialog: MatDialog,
     private route: ActivatedRoute,
@@ -93,11 +90,6 @@ export class CartComponent implements OnInit {
         console.log(err);
       }
     });
-  }
-
-  setActiveCartItem(cartItem: CartItem, index: number): void {
-    this.currentCartItem = cartItem;
-    this.currentIndex = index;
   }
 
   proceedToPayment() {
