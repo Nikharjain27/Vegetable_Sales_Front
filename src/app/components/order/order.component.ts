@@ -27,6 +27,7 @@ export class OrderComponent implements OnInit {
       const nowTime = new Date().getTime();
       if(nowTime-(+tokenExpirationTime) > 0){
         alert("Session Expired. Please Login Again...");
+        localStorage.clear();
         this.router.navigate(['/login']);
       }
     }

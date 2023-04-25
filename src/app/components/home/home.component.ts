@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
       console.log("here");
       if(nowTime-(+tokenExpirationTime) > 0){
         alert("Session Expired. Please Login Again...");
+        localStorage.clear();
         this.router.navigate(['/login']);
       }
     }
