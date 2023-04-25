@@ -16,26 +16,26 @@ export class UpdateproductComponent implements OnInit {
   product: Product;
   ngForm: FormGroup;
 
-  constructor(private productService:ProductService,
+  constructor(private productService: ProductService,
     private router: Router,
     @Inject(MAT_DIALOG_DATA) public updateData: any,
     private fb: FormBuilder
-    ) { 
-      this.validateForm();
-    }
+  ) {
+    this.validateForm();
+  }
 
   ngOnInit(): void {
     this.product = this.updateData.product;
     console.log(this.updateData);
   }
 
-  
-  UpdateProduct(){
+
+  UpdateProduct() {
     this.productService.updateProduct(this.product).subscribe({
-      next:(data)=>{
+      next: (data) => {
         alert("Vegetable updated successfully");
         console.log(data);
-        this.router.navigate(['/admin-product-list']);
+        this.router.navigate(['/admin/admin-product-list']);
       },
       error: (error) => {
         console.log("Error updating product data");
@@ -44,8 +44,8 @@ export class UpdateproductComponent implements OnInit {
     })
   }
 
-  
-  onSubmit(){
+
+  onSubmit() {
     console.log(this.product);
     this.UpdateProduct();
   }
