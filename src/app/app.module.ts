@@ -108,10 +108,12 @@ import { UpdateOrderComponent } from './components/admin/update-order/update-ord
     MatExpansionModule,
     MatDividerModule,
   ],
-  providers: [ProductService, CustomerService, { provide: MAT_DIALOG_DATA, useValue: {} }],
+  providers: [
+    ProductService,
+    CustomerService,
+    { provide: MAT_DIALOG_DATA, useValue: {} },
+  ],
   bootstrap: [AppComponent],
-  schemas: [
-    NO_ERRORS_SCHEMA
-  ]
+  schemas: [NO_ERRORS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
