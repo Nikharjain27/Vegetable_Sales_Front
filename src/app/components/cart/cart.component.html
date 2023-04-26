@@ -1,7 +1,7 @@
 <h1 style="margin-top: 15px; margin-left: 90px;"><b> <i class="bi bi-cart4"></i> My cart</b></h1>
 
 
-<ng-container *ngIf="cartIsEmpty() == false">
+<ng-container *ngIf="cartPresent() == false">
   <div class="container shadow p-1  bg-body rounded card center">
     <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png?f=webp">
     <b>

@@ -9,3 +9,7 @@ npm ERR!
 npm ERR! While resolving: vegetable-sales-front@0.0.0
 npm ERR! Found: @angular/common@14.3.0
 
+
+
+Admin : admin@admin.com
+pass :admin@123
