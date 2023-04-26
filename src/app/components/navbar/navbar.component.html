@@ -4,49 +4,35 @@
       <img class="logo" src="../../assets/img/logo.png" />
       <!-- <h5 class="nav-name">VegeFoods</h5> -->
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
-    </button> 
+    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav m-auto">
         <li class="nav-item" style="margin-left: -500px">
-          <a
-            [routerLink]="['/product-list-for-customer']"
-            class="nav-link"
-            href=".#"
-          >
+          <a [routerLink]="['/product-list-for-customer']" class="nav-link">
             Vegetables/Fruits
           </a>
         </li>
-        <li class="nav-item"*ngIf="isLoggedIn()==true">
+        <li class="nav-item" *ngIf="isLoggedIn()==true">
           <a [routerLink]="['/cart']" class="nav-link" href=".#"> Cart </a>
         </li>
 
         <li class="nav-item">
-          <a [routerLink]="['/aboutus']" class="nav-link" href=".#">
+          <a [routerLink]="['/aboutus']" class="nav-link">
             About Us
           </a>
         </li>
         <li class="nav-item">
-          <a [routerLink]="['/contactus']" class="nav-link" href=".#">
+          <a [routerLink]="['/contactus']" class="nav-link">
             Contact Us
           </a>
         </li>
       </ul>
       <form class="d-flex">
-        <a (click)="navigate()" style="cursor: pointer"
-          ><img
-            src="https://www.kindpng.com/picc/m/235-2351000_login-icon-png-transparent-png.png"
-            height="40px"
-        /></a>
+        <a (click)="navigate()" style="cursor: pointer"><img
+            src="https://www.kindpng.com/picc/m/235-2351000_login-icon-png-transparent-png.png" height="40px" /></a>
       </form>
     </div>
   </div>

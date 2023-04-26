@@ -1,15 +1,25 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { Customer } from '../entities/customer';
-
+import { Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
 export class CustomerService {
   private baseURL = 'http://localhost:9091/customer-section';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
+
+  checkAddress(): Observable<boolean> {
+    return this.httpClient.get<boolean>(
+      `${this.baseURL}/customer/check-address/${localStorage.getItem("customerEmailId")}`,
+      {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('authenticationToken')}`,
+        }),
+      });
+  }
 
   isLoggedIn() {
     let tokenStr = localStorage.getItem('authenticationToken');
@@ -24,7 +34,7 @@ export class CustomerService {
     return this.httpClient.get<Customer[]>(`${this.baseURL}/customers`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('authenticationToken')}`,
+        'Authorization': `Bearer ${localStorage.getItem('authenticationToken')}`,
       }),
     });
   }
@@ -36,7 +46,7 @@ export class CustomerService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem(
+          'Authorization': `Bearer ${localStorage.getItem(
             'authenticationToken'
           )}`,
         }),
@@ -48,7 +58,7 @@ export class CustomerService {
     return this.httpClient.put<Customer>(`${this.baseURL}/customer`, customer, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('authenticationToken')}`,
+        'Authorization': `Bearer ${localStorage.getItem('authenticationToken')}`,
       }),
     });
   }
@@ -57,7 +67,7 @@ export class CustomerService {
     return this.httpClient.get<Customer>(`${this.baseURL}/customer/${id}`, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('authenticationToken')}`,
+        'Authorization': `Bearer ${localStorage.getItem('authenticationToken')}`,
       }),
     });
   }
@@ -67,7 +77,7 @@ export class CustomerService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem(
+          'Authorization': `Bearer ${localStorage.getItem(
             'authenticationToken'
           )}`,
         }),
@@ -81,7 +91,7 @@ export class CustomerService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${localStorage.getItem(
+          'Authorization': `Bearer ${localStorage.getItem(
             'authenticationToken'
           )}`,
         }),

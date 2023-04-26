@@ -1,78 +1,63 @@
-<h1 style="margin-top: 15px; margin-left: 90px"><b> <i class="bi bi-cart4"></i> My cart</b></h1>
+<h1 style="margin-top: 15px; margin-left: 90px;"><b> <i class="bi bi-cart4"></i> My cart</b></h1>
 
 
 <ng-container *ngIf="cartIsEmpty() == false">
-  <div class="container shadow p-1  bg-body rounded">
-    <div class="card"></div>
-    <div class="center">
-      <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png?f=webp">
-      <b><h1>Your cart is Empty!</h1></b>
-      <h4>Add something to make me happy  <i class="bi bi-emoji-heart-eyes "></i></h4>
-      <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary orderbutton-3">
-        <i   class="bi bi-bicycle "> Order Now</i>
-      </button>
-    </div>
+  <div class="container shadow p-1  bg-body rounded card center">
+    <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-7236766-5875081.png?f=webp">
+    <b>
+      <h1>Your cart is Empty!</h1>
+    </b>
+    <h4>Add something to make me happy <i class="bi bi-emoji-heart-eyes "></i></h4>
+    <button [routerLink]="['/product-list-for-customer']" class="btn btn-primary orderbutton-3">
+      <i class="bi bi-bicycle "> Order Now</i>
+    </button>
   </div>
 </ng-container>
 
-<div class="container">
-  <div *ngIf="cartIsEmpty() == true" class="row ">
-    <div class="list-cart-item col-md-3 col-sm-4 " *ngFor="let cartItem of currentCart.cartItems; let i = index"
-      [class.active]="i == currentIndex" (click)="setActiveCartItem(cartItem, i)">
-      <mat-card class="mat-card shadow p-3 mb-5 bg-body rounded" style="width: 70%;margin: auto;">
+<div class="container" *ngIf="cartPresent() == true">
+  <div class="row">
+    <div class="list-cart-item col-md-3 col-sm-4" *ngFor="let cartItem of currentCart.cartItems; let i = index">
+      <mat-card class="cart-item shadow-lg">
         <mat-card-title-group>
           <mat-card-title>
             {{ cartItem.cartItemName }}
           </mat-card-title>
         </mat-card-title-group>
         <mat-card-title-group>
-
           <img height="200px" sizes="100px" mat-card-image src="{{ cartItem.cartItemImage }}" alt="product Photo" />
         </mat-card-title-group>
         <mat-card-content>
-
           <h4>
-            Price: <b>{{ cartItem.cartItemPrice  | currency:'INR'}} </b>
+            Price: <b>{{ cartItem.cartItemPrice | currency:'INR'}} </b>
           </h4>
         </mat-card-content>
-        <mat-card-actions style="display: flex; justify-content: space-evenly">
+        <mat-card-actions class="quantity-button-row">
           <button mat-raised-button color="warn" (click)="removeFromCart(currentCart.cartId, cartItem.cartItemId)">
             <mat-icon>remove_circle</mat-icon>
           </button>
-          <span style="
-              border: 1px solid grey;
-              width: 30px;
-              height: 30px;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              border-radius: 5px;
-            ">{{ cartItem.cartItemQuantity }}</span>
+          <span id="quantity">{{ cartItem.cartItemQuantity }}</span>
           <button mat-raised-button color="primary" (click)="increaseQuantity(currentCart.cartId, cartItem.cartItemId)">
             <mat-icon>add_circle</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>
     </div>
-
-    <div>
-      <mat-card class="cart-details shadow-lg p-3 mb-5 bg-body rounded">
-        <h3 align="center">
-          <b><i>Total Amount : </i> {{ currentCart.totalAmount | currency: 'INR'}}</b>
-        </h3>
-        <div style="display: flex;">
-          <button [disabled]="currentCart.cartItems.length === 0" class="btn btn-danger btn-md btn-block orderbutton-3"
-            (click)="removeAllFromCart(currentCart.cartId)">
-            <i class="bi bi-trash"> Clear Cart</i>
-          </button>
-          <button [disabled]="currentCart.totalAmount === 0" style="margin-left: 1000px;"
-            class="btn btn-success btn-md btn-block orderbutton-3 " (click)="openDialog()">
-            <i class="bi bi-credit-card-2-back-fill "> Make Payment</i>
-          </button>
-        </div>
-      </mat-card>
-      <br /><br />
-    </div>
   </div>
-</div>
 
+
+  <mat-card class="cart-details shadow-lg p-3 mb-5 bg-body rounded">
+    <h3 align="center">
+      <b><i>Total Amount : </i> {{ currentCart.totalAmount | currency: 'INR'}}</b>
+    </h3>
+    <div class="cart-buttons">
+      <button [disabled]="currentCart.cartItems.length === 0" class="btn btn-danger btn-md btn-block orderbutton-3"
+        (click)="removeAllFromCart(currentCart.cartId)">
+        <i class="bi bi-trash"> Clear Cart</i>
+      </button>
+      <button [disabled]="currentCart.totalAmount === 0" class="btn btn-success btn-md btn-block orderbutton-3 "
+        (click)="proceedToPayment()">
+        <i class="bi bi-credit-card-2-back-fill "> Make Payment</i>
+      </button>
+    </div>
+  </mat-card>
+</div>

@@ -18,6 +18,19 @@ export class OrderComponent implements OnInit {
   order: any = null;
   cartItems: any;
   ngOnInit(): void {
+    const token = localStorage.getItem("authenticationToken");
+    if(!token){
+      this.router.navigate(['/login']);
+    }
+    const tokenExpirationTime = localStorage.getItem("tokenExpirationTime");
+    if(tokenExpirationTime){
+      const nowTime = new Date().getTime();
+      if(nowTime-(+tokenExpirationTime) > 0){
+        alert("Session Expired. Please Login Again...");
+        localStorage.clear();
+        this.router.navigate(['/login']);
+      }
+    }
     this.httpClient
       .get(
         `http://localhost:9091/order-section/order-by-email/${this.customerEmail}`,

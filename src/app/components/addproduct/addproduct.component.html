@@ -5,7 +5,7 @@
             <mat-label>Product Name</mat-label>
             <input type="text" id="productName" required matInput placeholder="Eg. Potato"
                 [(ngModel)]="product.productName" name="productName" required #productNameField="ngModel">
-            <mat-error [hidden]="productNameField.valid || productNameField.untouched" class="alert alert-danger">
+            <mat-error [hidden]="productNameField.valid || productNameField.untouched">
                 Enter Product Name
             </mat-error>
         </mat-form-field>
@@ -14,7 +14,7 @@
             <mat-label>Product Type</mat-label>
             <mat-select type="text" id="productType" placeholder="Product Type" [(ngModel)]="product.productType"
                 name="productType" required #productTypeField="ngModel">
-                <mat-error [hidden]="productTypeField.valid || productTypeField.untouched" class="alert alert-danger">
+                <mat-error [hidden]="productTypeField.valid || productTypeField.untouched">
                     Select Product Type
                 </mat-error>
                 <mat-option value="Allium">Allium</mat-option>
@@ -22,6 +22,7 @@
                 <mat-option value="Marrow">Marrow</mat-option>
                 <mat-option value="Leafy green">Leafy green</mat-option>
                 <mat-option value="Root">Root</mat-option>
+                <mat-option value="Fruit">Fruit</mat-option>
             </mat-select>
         </mat-form-field>
 
@@ -30,8 +31,7 @@
             <input type="text" id="productDescription" matInput placeholder="Delicious"
                 [(ngModel)]="product.productDescription" name="productDescription" required
                 #productDescriptionField="ngModel">
-            <mat-error [hidden]="productDescriptionField.valid || productDescriptionField.untouched"
-                class="alert alert-danger">
+            <mat-error [hidden]="productDescriptionField.valid || productDescriptionField.untouched">
                 Enter Product Description
             </mat-error>
         </mat-form-field>
@@ -40,7 +40,7 @@
             <mat-label>Product Price</mat-label>
             <input type="number" id="productPrice" matInput placeholder="₹99" required
                 [(ngModel)]="product.productPrice" name="productPrice" required #productPriceField="ngModel">
-            <mat-error [hidden]="productPriceField.valid || productPriceField.untouched" class="alert alert-danger">
+            <mat-error [hidden]="productPriceField.valid || productPriceField.untouched">
                 Enter Product Price
             </mat-error>
         </mat-form-field>
@@ -49,7 +49,7 @@
             <mat-label>Image url</mat-label>
             <input type="type" id="productImage" matInput placeholder="Product Image" [(ngModel)]="product.productImage"
                 name="productImage" required #productImageField="ngModel">
-            <mat-error [hidden]="productImageField.valid || productImageField.untouched" class="alert alert-danger">
+            <mat-error [hidden]="productImageField.valid || productImageField.untouched">
                 Enter Product Image URL
             </mat-error>
         </mat-form-field>
