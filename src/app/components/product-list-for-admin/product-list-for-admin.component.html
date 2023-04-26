@@ -10,7 +10,7 @@
   <mat-grid-tile *ngFor="let product of products | searchProduct : searchText">
     <mat-card class="mat-card" style="width: 200px">
       <img style="border-radius: 5px; height: 150px; width: 200px" sizes="100px" mat-card-image
-        src="{{ product.productImage }}" alt="Dish Photo" />
+        src="{{ product.productImage }}" alt="Product Photo" />
       <mat-card-content>
         <mat-card-title>{{ product.productName }}</mat-card-title>
         <mat-card-subtitle>{{ product.productType }}</mat-card-subtitle>

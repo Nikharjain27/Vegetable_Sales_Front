@@ -13,6 +13,7 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
 
+
   searchText = '';
   dataSource = new MatTableDataSource();
   cartId:any;
@@ -54,6 +55,7 @@ export class ProductsComponent implements OnInit {
       },
     });
   }
+  
 
   setProducts = (data: any) => {
     this.products = data;
